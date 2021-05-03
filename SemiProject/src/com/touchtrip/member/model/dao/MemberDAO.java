@@ -1,6 +1,6 @@
-package com.tripTouch.member.model.dao;
+package com.touchtrip.member.model.dao;
 
-import static com.tripTouch.common.JDBCTemplate.close;
+import static com.touchtrip.common.JDBCTemplate.close;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import com.tripTouch.member.model.vo.Member;
+import com.touchtrip.member.model.vo.Member;
 
 public class MemberDAO {
 	private Properties prop;

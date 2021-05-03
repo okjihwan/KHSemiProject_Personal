@@ -1,16 +1,16 @@
-package com.tripTouch.member.model.service;
+package com.touchtrip.member.model.service;
 
-import static com.tripTouch.common.JDBCTemplate.close;
-import static com.tripTouch.common.JDBCTemplate.getConnection;
-import static com.tripTouch.common.JDBCTemplate.close;
-import static com.tripTouch.common.JDBCTemplate.commit;
-import static com.tripTouch.common.JDBCTemplate.getConnection;
-import static com.tripTouch.common.JDBCTemplate.rollback;
+import static com.touchtrip.common.JDBCTemplate.close;
+import static com.touchtrip.common.JDBCTemplate.getConnection;
+import static com.touchtrip.common.JDBCTemplate.close;
+import static com.touchtrip.common.JDBCTemplate.commit;
+import static com.touchtrip.common.JDBCTemplate.getConnection;
+import static com.touchtrip.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 
-import com.tripTouch.member.model.dao.MemberDAO;
-import com.tripTouch.member.model.vo.Member;
+import com.touchtrip.member.model.dao.MemberDAO;
+import com.touchtrip.member.model.vo.Member;
 
 public class MemberService {
 

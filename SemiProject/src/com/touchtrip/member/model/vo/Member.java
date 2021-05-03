@@ -1,4 +1,4 @@
-package com.tripTouch.member.model.vo;
+package com.touchtrip.member.model.vo;
 
 import java.io.Serializable;
 import java.sql.Date;
