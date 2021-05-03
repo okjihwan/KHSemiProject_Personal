@@ -1,0 +1,148 @@
+/* Global */
+
+:root {
+  --text-color: #f0f4f5;
+  --background-color: #263343;
+  --accent-color: #263343;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+/* 프로필 */
+
+.profile {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+/* 썸네일 이미지가 들어갈 공간 */
+
+.profile .thumb {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.1), 0 12px 24px 0 rgba(0, 0, 0, 0.24);
+}
+
+/* 썸네일 이미지 */
+
+.profile .thumb-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 36px;
+}
+
+/* 알림 배지 */
+
+.profile .badge {
+  width: 28px;
+  height: 28px;
+  font-size: 12px;
+  position: absolute;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  top: 0;
+  right: -8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 닉네임 */
+
+.profile .greeting {
+  font-family: 'Nanum Brush Script', cursive;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+/* 버튼 전체 형식 */
+
+.btn {
+  background-color: var(--accent-color);
+  border-radius: 28px;
+  border: 1px solid white;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #263343b4
+}
+
+.btn:focus {
+  outline: none;
+}
+
+
+/* 프로필 수정 버튼 */
+
+.profile-fix {
+  margin-top: 15px;
+  font-size: 17px;
+  padding: 10px 18px;
+}
+
+/* 세로선 */
+.vl {
+  margin-top: 30px;
+  border-left: 1px solid lightgray;
+  height: 650px;
+}
+
+/* 데이터 수정 목록 */
+
+.row {
+  width: 90%;
+  margin: 10px auto;
+}
+
+/* 수정 카드 박스 */
+
+.card {
+  width: 500px;
+  height: 170px;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table {
+  width: 300px;
+  height: 100px;
+}
+
+/* 내 플래너 썸네일 */
+
+.plan-img {
+  width: 97px;
+  height: 97px;
+  margin-left: 25px;
+  margin-right: -3px;
+  background: url(../images/Busan_mypage_sample.jpeg);
+  background-size: 100% 100%;
+}
+
+.plan-text {
+  background: #000000;
+  opacity: 0;
+}
+
+.plan-text p {
+  padding-top: 75px;
+}
+
+.plan-img:hover .plan-text {
+  opacity: 0.5;
+  text-align: center;
+  font-size: 15px;
+  color: #ffffff;
+}

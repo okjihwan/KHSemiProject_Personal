@@ -1,0 +1,240 @@
+/* Global */
+:root {
+    --text-color: #f0f4f5;
+    --background-color: #263343;
+    --accent-color: #263343;
+  }
+  
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro';
+}
+
+/* 헤더 메뉴들 */
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    height: 60px;
+    background-color: var(--background-color);
+}
+  
+/* 로고 아이콘 */
+.navbar__logo {
+    font-size: 24px;
+    color: var(--text-color);
+    font-family: 'Permanent Marker', cursive;
+    margin-top: -17px;
+}
+  
+.navbar__logo i {
+    color: rgb(156, 112, 192);
+}
+
+.navbar__logo a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+/* navbar 메뉴 */
+.navbar__menu {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    margin-left: -50px;
+}
+
+/* ----------- 검색창 ---------------*/
+/* 검색창 */
+#content {
+    position: absolute;
+    height: 25px;
+    width: 150px;
+    position: absolute;
+    margin-top: 46px;
+    right: 10px;
+    transform: translate(-50%, -50%);
+}
+  
+#content.on {
+    -webkit-animation-name: in-out;
+    animation-name: in-out;
+    -webkit-animation-duration: 0.7s;
+    animation-duration: 0.7s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+
+/* 돋보기 원 */
+#content > .input {
+    box-sizing: border-box;
+    width: 23px;
+    height: 23px;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    background: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    outline: 0;
+    -webkit-transition: width 0.4s ease-in-out, border-radius 0.8s ease-in-out,
+        padding 0.2s;
+    transition: width 0.4s ease-in-out, border-radius 0.8s ease-in-out,
+        padding 0.2s;
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+    -webkit-transform: translate(-100%, -50%);
+    -ms-transform: translate(-100%, -50%);
+    transform: translate(-100%, -50%);
+
+    position: absolute;
+    left: 132px;
+}
+
+/* 막대기 (돋보기 막대, 엑스 막대) */
+.search {
+    background: none;
+    position: absolute;
+    top: 0px;
+    left: -2px;
+    height: 15px;
+    width: 15px;
+    padding: 0;
+    border-radius: 100%;
+    outline: 0;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+    -webkit-transform: translate(-100%, -50%);
+    -ms-transform: translate(-100%, -50%);
+    transform: translate(-100%, -50%);
+}
+
+/* 돋보기 막대 */
+.search:before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 3px;
+    background-color: #fff;
+    -webkit-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    transform: rotate(30deg);
+    margin-top: 5px;
+    margin-left: 140px;
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+}
+ 
+/* 검색 박스 닫기 버튼*/
+.close {
+    -webkit-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+}
+
+.close:before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 3px;
+    margin-top: -1px;
+    margin-left: 117px;
+    background-color: #fff;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+}
+  
+.close:after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 3px;
+    background-color: #fff;
+    margin-top: -1px;
+    margin-left: 117px;
+    cursor: pointer;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+   
+ /* 검색 박스 내부 영역 */
+#content > .square {
+    box-sizing: border-box;
+    padding: 0 40px 0 10px;
+    width: 150px;
+    height: 30px;
+    border: 2px solid #ffffff;
+    border-radius: 0;
+    background: none;
+    color: #fff;
+    font-family: 'Source Sans Pro';
+    font-size: 14px;
+    font-weight: 400;
+    outline: 0;
+    -webkit-transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out,
+      padding 0.2s;
+    transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out,
+      padding 0.2s;
+    -webkit-transition-delay: 0.4s, 0s, 0.4s;
+    transition-delay: 0.4s, 0s, 0.4s;
+    -webkit-transform: translate(-100%, -50%);
+    -ms-transform: translate(-100%, -50%);
+    transform: translate(-100%, -50%);
+}
+
+/* --------------------------*/
+
+/* 메뉴 요소들 */
+.navbar__menu li {
+    padding: 8px 12px;
+}
+  
+.navbar__menu li:hover {
+    background-color: var(--accent-color);
+    border-radius: 4px;
+}
+
+.navbar__menu a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.navbar__icons {
+    list-style: none;
+    color: var(--text-color);
+    display: flex;
+    padding-left: 0;
+    margin-top: 1px;
+}
+
+/* Icons */
+.navbar__icons li {
+    padding: 8px 12px;
+}
+
+.navbar__icons a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+  

@@ -1,0 +1,65 @@
+.container { max-width: 1500px; }
+.firstContent { margin-top: 50px; font-family: 'Jua', sans-serif; font-size: 18px;}
+.secondContent { margin-top: 20px; }
+.setCardLine2{ margin-top: 30px; }
+.pagination{ margin-left: 10%; margin-top: 20px;}
+.page-item>a{ width: 50px; text-align: center; color:black; font-weight: bold;}
+
+.card-header{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.list-group-item a{
+    color: black;
+}
+
+
+/* FQA 리스트 */
+.listWrap {
+    list-style: none;
+    width: 100%;
+    margin-top: 0 auto;
+    font-family:sans-serif;
+}
+
+
+/* FAQ 질문 */
+.listWrap a {
+    color:#222;
+    font-size:22px;
+    transition:color 0.3s ease-out;
+    padding: 0 20 20 0px;
+    margin: 20 20 0 30px;
+}
+
+
+/* FAQ 질문 타입 */
+li a em {
+    margin: 15px;
+    border: 1px;
+    text-align: center;
+    width:200px;
+    display: inline-block;
+}
+
+/* FQA 답변 */
+.answer {
+    display: none;
+    width: auto;
+    font-size:15px;
+    padding: 15px;
+    background: #E6E6E6;
+}
+
+
+.cardFamous>.card{ 
+    margin: 30px 20px; 
+    box-shadow: 1px 1px 2px black,
+                -1px -1px 2px black;
+  }
+  .cardFamous .card-img-top{ width: 248px; height: 400px; border-bottom: 2px solid black;}
+
+  .pagination{ margin-left: 2%; }
+.page-item>a{ width: 50px; text-align: center; color:black; font-weight: bold;}
+

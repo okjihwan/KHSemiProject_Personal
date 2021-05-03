@@ -1,0 +1,121 @@
+/* �쟾泥� �겕湲� �꽕�젙 */
+.container { max-width: 1180px; }
+body{ background: whitesmoke; }
+
+
+
+/* �뀓�뒪�듃 愿��젴 */
+[class*=mainText]{ text-align: center; margin-top: 80px; font-size: 36px; font-weight: bold;}
+[class*=subText]{ text-align: center; margin-top: 10px;}
+
+
+
+/* �씤湲� �뿬�뻾吏� TOP6 移대뱶 �겕湲�, �씠誘몄� �겕湲�, �쐞移� �꽕�젙 */
+.cardFamous>.card{ 
+  margin: 30px 20px; 
+  box-shadow: 1px 1px 2px black,
+              -1px -1px 2px black;
+}
+.cardFamous .card-img-top{ width: 355px; height: 400px; border-bottom: 2px solid black;}
+
+
+
+/* 吏��뿭蹂� �뿬�뻾吏� 李얘린 移대뱶 �겕湲�, �씠誘몄� �겕湲�, �쐞移� �꽕�젙  */
+.famousSelet>.card{
+  margin: 30px 20px; 
+  box-shadow: 1px 1px 2px black,
+              -1px -1px 2px black;
+}
+.famousSelet .card-img-top{ width: 261px; height: 250px; border-bottom: 2px solid black;}
+
+
+
+/* 愿�由ъ옄 / �씠�슜�옄 異붿쿇 �뿬�뻾吏� 移대뱶 �겕湲�, �씠誘몄� �겕湲�, �쐞移� �꽕�젙 */
+.selectedPerson img{
+  width: 300px;
+  height: 295px;
+}
+.selectedPerson .card-body{ margin-left: 25px; }
+
+
+
+/* 吏��뿭蹂� 愿�愿묒� 李얘린 踰꾪듉 愿��젴 */
+.btnWrap1{ margin-top: 30px; text-align: center; }
+.btnWrap1>button{ width: 90px; color: black; }
+.searchFamous{
+  margin-top: 20px;
+  width: 1130px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+/* �뿬�뻾吏� 異붿쿇 愿��젴 */
+.wrap2{ width: 1180px; }
+.selectPerson{
+  margin-top: 40px;
+  text-align: center;
+  border: 1px solid black;
+}
+.selectedPerson{ margin-top: 40px; }
+
+
+
+/* �럹�씠吏� 愿��젴 */
+.pagination{ margin-left: 20%; }
+.page-item>a{ width: 50px; text-align: center; color:black; font-weight: bold;}
+
+
+
+/* 硫붿씤�럹�씠吏� 泥� �솕硫� �씠誘몄� 諛� 湲��옄 愿��젴 */
+.img {
+    position: relative;
+    background-image: url(../images/媛뺣쫱.jpeg);
+    height: 100vh;
+    background-size: cover;
+    border-bottom: 2px solid black;
+  }
+
+  .img-cover {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(105, 99, 99, 0.363);
+    z-index: 1;
+  }
+  .img .content .touch {
+    position: absolute;
+    top: 25%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    color: white;
+    z-index: 2;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .img .content .trip {
+    position: absolute;
+    top: 54%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    color: white;
+    z-index: 2;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .img .content .text {
+    position: absolute;
+    top: 42%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    color: white;
+    z-index: 2;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+  }

@@ -1,0 +1,60 @@
+/* footer */
+
+/* footer의 TripTouch */
+.about h3 {
+    font-family: 'Permanent Marker', cursive;
+    letter-spacing: 3px;
+    margin-top: 22px;
+    font-size: 30px;
+}
+    
+.touch{
+    text-align: left;
+}
+.trip {
+    position: relative;
+    left: 25px;
+    bottom: 20px;
+}
+    
+/* 부산 여행의 모든 것 */
+.sub {
+    font-size: 30px;
+    font-family: 'Nanum Brush Script', cursive;
+    margin-top: -25px;
+}
+
+article {
+    margin-top: 40px;
+}
+    
+.about {
+    color: rgba(104, 104, 104, 0.884);
+    text-align: center;
+}
+    
+.name {
+    font-size: 12px;
+}
+    
+.end {
+    font-size: 12px;
+}
+
+.list-icon {
+    font-size: 14px;
+}
+    
+.go-to-top {
+    background: black;
+    float: right;
+}
+    
+.bottom {
+    color: lightgray;
+    text-align: center;
+}
+    
+article div a {
+    color: red;
+}   
