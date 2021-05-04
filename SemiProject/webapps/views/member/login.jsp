@@ -109,141 +109,123 @@
 					alt="google">
 			</div>
 			 -->
-			<form id="login" class="log-group" action="/planner/login.me"
-				method="post">
-				아이디&nbsp; <input type="text" class="log-field" id="userId"
-					name="userId" placeholder="Enter ID" required> <br> <br>
-				비밀번호<input type="userPwd" class="log-field" id="userPwd"
-					name="userPwd" placeholder="Enter Password" required> <input
-					type="checkbox" class="checkbox"><span>로그인 유지하기</span>
-				<button class="submit" onClick="loginMember();">L O G I N</button>
-			</form>
-			<form id="register" class="join-group" action="/planner/insert.me"
-				method="post">
+            <form id="login" class="log-group" action="/planner/login.me" method="post" >
+                아이디&nbsp;
+                <input type="text" class="log-field" id="userId" name="userId" placeholder="Enter ID" required>
+                <br><br>
+                비밀번호<input type="userPwd" class="log-field" id="userPwd" name="userPwd" placeholder="Enter Password" required>
+            
+                <input type="checkbox" class="checkbox"><span>로그인 유지하기</span>
+                <button class="submit" onClick="loginMember();">L O G I N</button>
+            </form>
+            
+            <form id="register" class="join-group" action="/planner/insert.me" method="post" >
 				아이디&nbsp;
-				<div>
-					<input type="text" class="join-field" id="userId" name="userId"
-						placeholder="Enter ID" minlength="4" required> &nbsp;
-					<button class="button" id="idCheck">중복확인</button>
-				</div>
-				<br /> 비밀번호
-				<div>
-					<input type="userPwd" class="join-field" id="userPwd"
-						name="userPwd" placeholder="Enter Password" minlength="6" required>
-				</div>
-				<br> 이름
-				<div>
-					<input type="text" class="join-field" id="userName" name="userName"
-						placeholder="Enter Name" required>
-				</div>
-				<br /> 닉네임<br />
-				<div>
-					<input type="text" class="join-field" id="nickName" name="nickName"
-						placeholder="Enter Nickname" required> &nbsp;
-					<button class="button" id="nickCheck">중복확인</button>
-				</div>
-				<br />
-				<div>
-					나이 &nbsp; <input type="number" name="age" class="sel"
-						aria-label="나이" min="10" placeholder="age" style="margin-left: 4px;" required>
-					&nbsp;<select id="gender" name="gender" aria-label="성별"
-						placeholder="gender" style="margin-left: 14px; margin-bottom: 3px;">
-						<option value="">gender</option>
-						<option value="M">남자</option>
-						<option value="F">여자</option>
-					</select>
-				</div>
-				<br />
-				<div>
-					연락처<br> <input type="tel" class="join-field" id="tel"
-						name="tel" placeholder="Enter Phone Number" required>
-					<button class="button" style="margin-left: 6px;">인증하기</button>
-				</div>
-				<input type="checkbox" class="checkbox"><span>개인정보 수집
-					및 이용에 동의합니다.</span>
-				<button class="submit" onClick="insertMember();">R E G I S
-					T E R</button>
-			</form>
-		</div>
-	</div>
-	<script>
-		var x = document.getElementById("login");
-		var y = document.getElementById("register");
-		var z = document.getElementById("btn");
+                <div><input style="width: 70%;" type="text" class="join-field" id="userId_sign_in" name="userId" placeholder="Enter ID" required> 
+                &nbsp;<button style="width: 25%;" class="button" id="idCheck" >중복확인</button></div><br />
+                비밀번호
+                <div><input type="userPwd" class="join-field" id="userPwd" name="userPwd" placeholder="Enter Password" required>
+                </div><br>
+                이름
+                <div><input type="text" class="join-field" id="userName" name="userName" placeholder="Enter Name" required>
+                </div><br/>
+                닉네임<br />
+                <div><input style="width: 70%;" type="text" class="join-field" id="nickName" name="nickName" placeholder="Enter Nickname" required>
+                &nbsp;<button style="width: 25%;" class="button" id="nickCheck">중복확인</button>
+                </div><br />
+				<div>나이 &nbsp;<input type="number" name="age" class="sel" aria-label="나이" min="10" placeholder="age" required>
+                    &nbsp;<select id="gender" name="gender" aria-label="성별" placeholder="gender">
+                                <option value="">gender</option>
+                                <option value="M">남자</option>
+                                <option value="F">여자</option>
+                        </select></div><br />
+                <div>연락처<br>
+                <input type="phone" class="join-field" id="phone" name="phone" placeholder="Enter Number Only" required> 
+                <%--	<button class="button">인증하기</button> --%>
+                </div>
+                <input type="checkbox" class="checkbox"><span>개인정보 수집 및 이용에 동의합니다.</span>
+                <button class="submit" onClick="insertMember();">R E G I S T E R</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        var x = document.getElementById("login");
+        var y = document.getElementById("register");
+        var z = document.getElementById("btn");
+        
+        
+        function login(){
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0";
+        }
+        function register(){
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "110px";
+        }
+    	
+    	function insertMember() {
+    		$("#register").submit();
+			alert("환영합니다~~ 회원가입 성공!")
 
-		function login() {
-			x.style.left = "50px";
-			y.style.left = "450px";
-			z.style.left = "0";
-		}
-		function register() {
-			x.style.left = "-400px";
-			y.style.left = "50px";
-			z.style.left = "110px";
-		}
+    	}
+    	
+    	var idCheck = 0;
+    	$('#idCheck').on('click', function(){
+    		var userId = $('#userId_sign_in').val();
+ 		
+    		$.ajax({
+    			url : '/planner/idCheck.me',
+    			type : 'post',
+    			data : { userId },
+    			success : function( data ) {
+					
+    				if( data > 0) {
+    					alert("이미 사용 중인 아이디입니다.");
+    				} else {
+    					alert("사용 가능한 아이디입니다.");
+    				} 
+    				
+    			}, error : function(error){
+    				alert("다시 시도해주세요!" )
+    			}
+    	    });
+    	});
+    	
+    	var nickCheck = 0;
+    	$('#nickCheck').on('click', function(){
+    		var nickName = $('#nickName').val();
 
-		function insertMember() {
-			$("#register").submit();
-		}
+    		$.ajax({
+    			url : '/planner/nickCheck.me',
+    			type : 'post',
+    			data : { nickName },
+    			success : function( data ) {
 
-		$('#idCheck').on('click', function() {
-			$.ajax({
-				url : '/planner/idcheck.me',
-				type : 'post',
-				data : {
-					userId : $('#userId').val()
-				},
-				success : function(data) {
-					console.log(data);
-
-					if (data == 0) {
-						alert("사용 가능한 아이디입니다.");
-					} else {
-						alert("이미 사용 중인 아이디입니다.");
-					}
-
-				},
-				error : function() {
-					console.log("전송 실패!");
-				}
-			});
-		});
-
-		$('#nickCheck').on('click', function() {
-			$.ajax({
-				url : '/planner/nickCheck.me',
-				type : 'post',
-				data : {
-					nickName : $('#nickName').val()
-				},
-				success : function(data) {
-					console.log(data);
-
-					if (data == 0) {
-						alert("사용 가능한 아이디입니다.");
-					} else {
-						alert("이미 사용 중인 아이디입니다.");
-					}
-
-				},
-				error : function() {
-					console.log("전송 실패!");
-				}
-			});
-		});
-
-		function loginMember() {
-			$("#login").submit();
-		}
-
-		$("#login").submit(function(event) {
-			if ($("#userPwd").val() == "" || $("#userId").val() == "")
-				alert("아이디와 비밀번호가 다릅니다!");
-			else
-				return;
-			event.preventDefault();
-		});
-	</script>
+    				if( data > 0) {
+    					alert("이미 사용 중인 닉네임입니다.");
+    				} else {
+    					alert("사용 가능한 닉네임입니다.");
+    				} 
+    				
+    			}, error : function(){
+    				alert("다시 시도해주세요!" )
+    			}
+    		});
+    	});
+   	
+    	function loginMember() {
+    		$("#login").submit();
+    	}
+    	
+    	$("#login").submit(function(event){
+    		if($("#userPwd").val() == "" || $("#userId").val() == "") alert("아이디와 비밀번호가 다릅니다!");
+    		else return;
+    		event.preventDefault();
+    	});
+	
+    </script>
 
 	<br>
 	<br>
