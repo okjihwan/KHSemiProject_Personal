@@ -41,14 +41,14 @@ public class MainChoiceArea extends HttpServlet {
 		IntroToMainService service = new IntroToMainService();
 		
 		listArea = service.selectArea(value);
-		System.out.println("Áö¿ª ¼±ÅÃ È®ÀÎ");
+
 		System.out.println(listArea);
 
 		
-		// ¸ðµç ¿©ÇàÁö Á¤º¸ °¡Á®¿À´Â ¼­ºí¸´ ºÒ·¯¿À±â(InrtoToMain ¼­ºí¸´¿¡¼­ Á¦°ø)
+
 		/*
 		 * if(value == 0) { listArea = service.selectAllFamous();
-		 * System.out.println("ÀüÃ¼ Áö¿ª ¼±ÅÃ È®ÀÎ"); }
+		 * System.out.println("ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½"); }
 		 */
 		
 		new Gson().toJson(listArea, response.getWriter());

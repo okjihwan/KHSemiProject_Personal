@@ -71,7 +71,7 @@ body{ background: whitesmoke; }
 /* 硫붿씤�럹�씠吏� 泥� �솕硫� �씠誘몄� 諛� 湲��옄 愿��젴 */
 .img {
     position: relative;
-    background-image: url(../images/媛뺣쫱.jpeg);
+    background-image: url(../images/강릉.jpeg);
     height: 100vh;
     background-size: cover;
     border-bottom: 2px solid black;
@@ -118,4 +118,23 @@ body{ background: whitesmoke; }
     z-index: 2;
     text-align: center;
     font-family: 'Roboto', sans-serif;
+  }
+  
+    .card:hover {
+    opacity: 0.8;
+  }
+  
+  .overTest{
+    opacity: 0;
+    margin-top: -130px;
+    margin-bottom: 100px;
+  }
+
+  .card:hover .overTest{
+    opacity: 0.99;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    z-index: 10;
   }

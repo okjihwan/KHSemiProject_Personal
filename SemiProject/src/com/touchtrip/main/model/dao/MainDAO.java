@@ -151,8 +151,8 @@ public class MainDAO {
 				p.setfName(rs.getString("FNAME"));
 				p.setfAddress(rs.getString("FADDRESS"));
 				p.setfPhone(rs.getString("FPHONE"));
-				p.setfReview(rs.getString("RCONTENT"));
-				p.setfScore(rs.getDouble("RSCORE"));
+				p.setfReview(rs.getString("FRCONTENT"));
+				p.setfScore(rs.getDouble("FRSCORE"));
 				
 				listPage.add(p);
 			}
@@ -190,8 +190,8 @@ public class MainDAO {
 				m.setfName(rs.getString("FNAME"));
 				m.setfAddress(rs.getString("FADDRESS"));
 				m.setfPhone(rs.getString("FPHONE"));
-				m.setfReview(rs.getString("RCONTENT"));
-				m.setfScore(rs.getDouble("RSCORE"));
+				m.setfReview(rs.getString("FRCONTENT"));
+				m.setfScore(rs.getDouble("FRSCORE"));
 				
 				listArea.add(m);
 				

@@ -51,7 +51,6 @@ public class IntroToMain extends HttpServlet {
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		}
 		
-		// �쟾泥� �뿬�뻾�젙蹂� 媛��닔 �솗�씤 �븯�뒗 �꽌鍮꾩뒪
 		int countPage =  service.countPage();
 		
 		maxPage = (int)((double)countPage / 8 + 0.9);

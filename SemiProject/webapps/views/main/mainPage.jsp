@@ -94,6 +94,7 @@
 					<img src="/planner/assets/images/부산1.jpg" class="card-img-top"
 						alt="...">
 					<div class="card-body">
+						<div class="overTest"><button type="button" class="btn overTest">플래너<br />작성하러 가기</button></div>
 						<h5 class="card-title">Top 1</h5>
 						<p class="card-text">부산 해운대</p>
 						<p class="card-text">
@@ -111,6 +112,7 @@
 					<img src="/planner/assets/images/부산2.jpg" class="card-img-top"
 						alt="...">
 					<div class="card-body">
+						<div class="overTest"><button type="button" class="btn overTest">플래너<br />작성하러 가기</button></div>
 						<h5 class="card-title">Top 2</h5>
 						<p class="card-text">부산 감천문화마을</p>
 						<p class="card-text">
@@ -128,6 +130,7 @@
 					<img src="/planner/assets/images/부산3.jpg" class="card-img-top"
 						alt="...">
 					<div class="card-body">
+						<div class="overTest"><button type="button" class="btn overTest">플래너<br />작성하러 가기</button></div>
 						<h5 class="card-title">Top 3</h5>
 						<p class="card-text">부산 마린시티</p>
 						<p class="card-text">
@@ -148,6 +151,7 @@
 					<img src="/planner/assets/images/부산1.jpg" class="card-img-top"
 						alt="...">
 					<div class="card-body">
+						<div class="overTest"><button type="button" class="btn overTest">플래너<br />작성하러 가기</button></div>
 						<h5 class="card-title">Top 4</h5>
 						<p class="card-text">부산 해운대</p>
 						<p class="card-text">
@@ -165,6 +169,7 @@
 					<img src="/planner/assets/images/부산2.jpg" class="card-img-top"
 						alt="...">
 					<div class="card-body">
+						<div class="overTest"><button type="button" class="btn overTest">플래너<br />작성하러 가기</button></div>
 						<h5 class="card-title">Top 5</h5>
 						<p class="card-text">부산 감천문화마을</p>
 						<p class="card-text">
@@ -182,6 +187,7 @@
 					<img src="/planner/assets/images/부산3.jpg" class="card-img-top"
 						alt="...">
 					<div class="card-body">
+						<div class="overTest"><button type="button" class="btn overTest">플래너<br />작성하러 가기</button></div>
 						<h5 class="card-title">Top 6</h5>
 						<p class="card-text">부산 마린시티</p>
 						<p class="card-text">
@@ -249,7 +255,7 @@
 			<div class="card-group famousSelet">
 				<div class="card famousSelet">
 					<img src="/planner/assets/images/<%=listPage.get(j).getfName()%>.jpg"
-						class="card-img-top" alt="...">
+						class="card-img-top" alt="..." id="img<%= j %>">
 					<div class="card-body">
 						<h5 class="card-title" id="area<%= j %>"><%=listPage.get(j).getfArea()%></h5>
 						<p class="card-text" id="name<%= j %>"><%=listPage.get(j).getfName()%></p>
@@ -269,7 +275,7 @@
 
 				<div class="card famousSelet">
 					<img src="/planner/assets/images/<%=listPage.get(j).getfName()%>.jpg"
-						class="card-img-top" alt="...">
+						class="card-img-top" alt="..." id="img<%= j %>">
 					<div class="card-body">
 						<h5 class="card-title" id="area<%= j %>"><%=listPage.get(j).getfArea()%></h5>
 						<p class="card-text" id="name<%= j %>"><%=listPage.get(j).getfName()%></p>
@@ -289,7 +295,7 @@
 
 				<div class="card famousSelet">
 					<img src="/planner/assets/images/<%=listPage.get(j).getfName()%>.jpg"
-						class="card-img-top" alt="...">
+						class="card-img-top" alt="..." id="img<%= j %>">
 					<div class="card-body">
 						<h5 class="card-title" id="area<%= j %>"><%=listPage.get(j).getfArea()%></h5>
 						<p class="card-text" id="name<%= j %>"><%=listPage.get(j).getfName()%></p>
@@ -308,7 +314,7 @@
 
 				<div class="card famousSelet">
 					<img src="/planner/assets/images/<%=listPage.get(j).getfName()%>.jpg"
-						class="card-img-top" alt="...">
+						class="card-img-top" alt="..." id="img<%= j %>">
 					<div class="card-body">
 						<h5 class="card-title" id="area<%= j %>"><%=listPage.get(j).getfArea()%></h5>
 						<p class="card-text" id="name<%= j %>"><%=listPage.get(j).getfName()%></p>
@@ -532,6 +538,7 @@
 	
 					for( z = 0 ; z < result.listSelectPage.length ; z++){
 						/* console.log("반복문 실행 테스트"); */
+						$("#img" + z).attr("src", result.listSelectPage[z].fName);
 						$("#area" + z).text(result.listSelectPage[z].fArea);
 						$("#name" + z).text(result.listSelectPage[z].fName);
 						$("#address" + z).text(result.listSelectPage[z].fAddress);
