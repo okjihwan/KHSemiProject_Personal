@@ -604,6 +604,7 @@ int j = 0;
 					
 					for( z = 0 ; z < resultArea.length ; z++){
 						console.log("반복문 실행 테스트");
+						$("#img" + z).attr("src", "/planner/assets/images/"+ resultArea[z].fName + ".jpg");
 						$("#area" + z).text(resultArea[z].fArea);
 						$("#name" + z).text(resultArea[z].fName);
 						$("#address" + z).text(resultArea[z].fAddress);
@@ -643,7 +644,8 @@ int j = 0;
 	
 					for( z = 0 ; z < result.listSelectPage.length ; z++){
 						/* console.log("반복문 실행 테스트"); */
-						$("#img" + z).attr("src", result.listSelectPage[z].fName);
+						
+						$("#img" + z).attr("src", "/planner/assets/images/"+ result.listSelectPage[z].fName + ".jpg");
 						$("#area" + z).text(result.listSelectPage[z].fArea);
 						$("#name" + z).text(result.listSelectPage[z].fName);
 						$("#address" + z).text(result.listSelectPage[z].fAddress);

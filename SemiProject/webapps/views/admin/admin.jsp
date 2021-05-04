@@ -106,8 +106,8 @@
                                 성별
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#" id="showGenderMan">남</a>
-                                <a class="dropdown-item" href="#" id="showGenderWoman">여</a>
+                                <a class="dropdown-item" href="/planner/views/admin/adminGender.jsp?gender=1" id="showGenderMan">남</a>
+                                <a class="dropdown-item" href="/planner/views/admin/adminGender.jsp?gender=2" id="showGenderWoman">여</a>
                             </div>
                         </div>
                     </div>
@@ -181,7 +181,7 @@
                                             var myChart = new Chart(ctx, {
                                                 type: 'bar',
                                                 data: {
-                                                    labels: ["2021-04-24", "2021-04-25", "2021-04-26", "2021-04-27", "2021-04-28", "2021-04-29", "2021-04-30"],
+                                                    labels: ["2021-04-28", "2021-04-29", "2021-04-30", "2021-05-01", "2021-05-02", "2021-05-03", "2021-05-04"],
                                                     datasets: [{
                                                         label: '회원 수',
                                                         data: [<%= a.getSeventhJoin() %>, <%= a.getSixthJoin() %>, <%= a.getFifthJoin() %>, <%= a.getFourthJoin() %>, <%= a.getThirdJoin() %>, <%= a.getSecondJoin() %>, <%= a.getFirstJoin() %>],
@@ -238,7 +238,7 @@
                                             var myChart = new Chart(ctx, {
                                                 type: 'bar',
                                                 data: {
-                                                	labels: ["2021-04-24", "2021-04-25", "2021-04-26", "2021-04-27", "2021-04-28", "2021-04-29", "2021-04-30"],
+                                                	labels: ["2021-04-28", "2021-04-29", "2021-04-30", "2021-05-01", "2021-05-02", "2021-05-03", "2021-05-04"],
                                                     datasets: [{
                                                         label: '누적 회원 수',
                                                         data: [<%= o %>, <%= one %>, <%= two %>, <%= three %>, <%= four %>, <%= five %>, <%= six %>],

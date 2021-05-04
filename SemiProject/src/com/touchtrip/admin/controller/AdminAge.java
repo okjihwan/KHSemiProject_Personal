@@ -35,7 +35,7 @@ public class AdminAge extends HttpServlet {
 		
 		int ageValue = Integer.parseInt(request.getParameter("age"));
 
-//		System.out.println(ageValue);
+		System.out.println(ageValue);
 
 		AdminService service = new AdminService();
 		
@@ -43,15 +43,17 @@ public class AdminAge extends HttpServlet {
 		// ==================== 지역별 선호 인원 ====================
 		int[] arrayAge = new int[6];
 		int[] arrayGender = new int[2];
-//		int[] arrayFamous = new int[2];
+		int[] arrayPersonnel = new int[6];
+		int[] arrayDay = new int[6];
 		
 //		arrayAge = service.checkAge();
 		arrayGender = service.checkGender(ageValue);
-//		
+		arrayPersonnel = service.checkPersonnel(ageValue);
+		arrayDay = service.checkDay(ageValue);
+		
 		if(ageValue == 10) {
 			// 여기에 각각의 서비스 실행해서 값 가져오기
 			arrayAge = new int[] {10, 20, 30, 40, 50 ,60};
-//			arrayGender = new int[] {10, 20};
 		}
 		
 		else if (ageValue == 20) {
@@ -77,7 +79,8 @@ public class AdminAge extends HttpServlet {
 		HashMap<String, int[]> map = new HashMap<>();
 		map.put("arrayAge", arrayAge);
 		map.put("arrayGender", arrayGender);
-//		map.put("arrayFamous", arrayFamous);
+		map.put("arrayPersonnel", arrayPersonnel);
+		map.put("arrayDay", arrayDay);
 
 		new Gson().toJson(map, response.getWriter());
 		
