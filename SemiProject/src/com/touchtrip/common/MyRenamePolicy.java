@@ -1,4 +1,4 @@
-package com.tripTouch.common;
+package com.touchtrip.common;
 
 import java.io.File;
 import java.text.SimpleDateFormat;

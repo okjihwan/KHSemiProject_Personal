@@ -46,7 +46,6 @@
 
 <body >
 	<!-- footer -->
-	<hr>
 	<footer class="footer"  >
 		<div class="top" >
 			<div class="container" >
@@ -79,7 +78,7 @@
 								</div>
 
 								<div>
-									<i class="fa fa-envelope"></i>&nbsp;&nbsp;&nbsp;triptouch@gmail.com
+									<i class="fa fa-envelope"></i>&nbsp;&nbsp;&nbsp;touchtrip@gmail.com
 								</div>
 							</div>
 						</div>

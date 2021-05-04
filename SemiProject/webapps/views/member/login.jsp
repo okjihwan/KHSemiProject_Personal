@@ -23,6 +23,7 @@
 	href="http://localhost:8088/planner/assets/css/footer.css" />
 <link rel="stylesheet"
 	href="http://localhost:8088/planner/assets/css/login.css">
+<script src="http://localhost:8088/planner/assets/js/jquery-3.6.0.min.js"></script>	
 
 <script src="https://kit.fontawesome.com/2d323a629b.js"
 	crossorigin="anonymous"></script>
@@ -33,7 +34,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
 	rel="stylesheet">
-
 
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap"
@@ -57,13 +57,13 @@
 			<!-- 로고, 아이콘 -->
 			<div class="navbar__logo" style="margin-top: -4px;">
 				<i class="fas fa-route"></i> <a
-					href="http://localhost:8088/planner/main/mainPage.jsp"
+					href="/planner/checkMain.do"
 					style="font-family: 'Permanent Marker', cursive;">TouchTrip</a>
 			</div>
 			<!-- 메뉴 -->
 			<ul class="navbar__menu">
 				<li><a
-					href="http://localhost:8088/planner/views/main/mainPage.jsp">Home</a></li>
+					href="/planner/checkMain.do">Home</a></li>
 				<li><a href="">플래너</a></li>
 				<li><a
 					href="http://localhost:8088/planner/views/board/community.jsp">커뮤니티</a></li>
@@ -133,8 +133,8 @@
                 <div><input style="width: 70%;" type="text" class="join-field" id="nickName" name="nickName" placeholder="Enter Nickname" required>
                 &nbsp;<button style="width: 25%;" class="button" id="nickCheck">중복확인</button>
                 </div><br />
-				<div>나이 &nbsp;<input type="number" name="age" class="sel" aria-label="나이" min="10" placeholder="age" required>
-                    &nbsp;<select id="gender" name="gender" aria-label="성별" placeholder="gender">
+				<div>나이 &nbsp;<input type="number" name="age" class="sel" aria-label="나이" min="10" placeholder="age" style="margin-left: 8px;" required>
+                    &nbsp;<select id="gender" name="gender" aria-label="성별" placeholder="gender" style="margin-left: 10px;">
                                 <option value="">gender</option>
                                 <option value="M">남자</option>
                                 <option value="F">여자</option>
@@ -167,9 +167,15 @@
     	
     	function insertMember() {
     		$("#register").submit();
-			alert("환영합니다~~ 회원가입 성공!")
-
+			alert("회원가입 성공!");
+    		location.href='/planner/main/mainPage.jsp';
     	}
+    	
+    	$("#register").submit(function(event){
+    		if($("#userId").val() == "" || $("#userPwd").val() == "") alert("아이디와 비밀번호는 필수 값입니다.");
+    		else return;
+    		event.preventDefault();
+    	});
     	
     	var idCheck = 0;
     	$('#idCheck').on('click', function(){
@@ -217,10 +223,12 @@
    	
     	function loginMember() {
     		$("#login").submit();
+			// alert("로그인 성공!");
+    		location.href='/planner/checkMain.do';
     	}
     	
     	$("#login").submit(function(event){
-    		if($("#userPwd").val() == "" || $("#userId").val() == "") alert("아이디와 비밀번호가 다릅니다!");
+    		if($("#userId").val() == "" || $("#userPwd").val() == "") alert("아이디와 비밀번호는 필수 값입니다!");
     		else return;
     		event.preventDefault();
     	});
@@ -269,7 +277,6 @@
 	<br>
 	<br>
 	<br>
-	<hr>
 	<br>
 	<br>
 	<!-- footer -->
@@ -311,7 +318,7 @@
 									</div>
 
 									<div>
-										<i class="fa fa-envelope"></i>&nbsp;&nbsp;&nbsp;triptouch@gmail.com
+										<i class="fa fa-envelope"></i>&nbsp;&nbsp;&nbsp;touchtrip@gmail.com
 									</div>
 								</div>
 							</div>

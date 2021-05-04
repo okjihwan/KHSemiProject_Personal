@@ -263,7 +263,7 @@
                                 <div>&nbsp;<i class="fa fa-map-marker"></i>&nbsp;&nbsp;&nbsp;서울특별시 강남구 테헤란로14길 6 남도빌딩
                                 </div>
 
-                                <div><i class="fa fa-envelope"></i>&nbsp;&nbsp;&nbsp;triptouch@gmail.com</div>
+                                <div><i class="fa fa-envelope"></i>&nbsp;&nbsp;&nbsp;touchtrip@gmail.com</div>
                             </div>
                         </div>
                     </article>

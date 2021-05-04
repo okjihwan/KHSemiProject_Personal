@@ -56,7 +56,7 @@
 			<!-- 로고, 아이콘 -->
 			<div class="navbar__logo">
 				<i class="fas fa-route"></i> <a
-					href="http://localhost:8088/planner/views/main/mainPage.jsp">TouchTrip</a>
+					href="/planner/checkMain.do">TouchTrip</a>
 			</div>
 			<!-- 메뉴 -->
 			<ul class="navbar__menu">

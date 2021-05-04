@@ -49,7 +49,7 @@ public class MemberLogin extends HttpServlet {
 			
 			session.setAttribute("member", loginMember);
 			
-			response.sendRedirect("/main/mainPage.jsp");
+			response.sendRedirect("/planner/checkMain.do");
 
 		} else {
 			
