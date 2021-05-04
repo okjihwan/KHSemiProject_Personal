@@ -56,4 +56,35 @@ public class AdminService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public int[] checkPersonnel(int ageValue) {
+		con = getConnection();
+		
+		int[] arrayPersonnel= dao.checkPersonnel(con, ageValue);
+		
+		close(con);
+		
+		return arrayPersonnel;
+	}
+
+	public int[] checkDay(int ageValue) {
+		con = getConnection();
+		
+		int[] arrayDay= dao.checkDay(con, ageValue);
+		
+		close(con);
+		
+		return arrayDay;
+	}
+
+	// 성별 기준 연령대 분포도 확인
+	public int[] checkGenderAge(int genderValue) {
+		con = getConnection();
+		
+		int[] arrayGenderAge = dao.checkGenderAge(con, genderValue);
+		
+		close(con);
+		
+		return arrayGenderAge;
+	}
 }

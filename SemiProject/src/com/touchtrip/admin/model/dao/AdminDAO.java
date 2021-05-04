@@ -145,6 +145,7 @@ public class AdminDAO {
 			while(rs.next()) {
 				arrayGender[index] = rs.getInt(1);
 				index++;
+				
 			}
 			
 		} catch (SQLException e) {
@@ -155,6 +156,105 @@ public class AdminDAO {
 		}
 		
 		return arrayGender;
+	}
+
+	public int[] checkPersonnel(Connection con, int ageValue) {
+		int[] arrayPersonnel = new int[6];
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		int index = 0;
+		
+		String sql = prop.getProperty("checkPersonnel");
+		
+		try {
+			ps = con.prepareStatement(sql);
+			
+			ps.setInt(1, ageValue);
+			ps.setInt(2, ageValue+10);
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				arrayPersonnel[index] = rs.getInt(3);
+				index++;
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(ps);
+		}
+		
+		return arrayPersonnel;
+	}
+
+	public int[] checkDay(Connection con, int ageValue) {
+		int[] arrayDay = new int[6];
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		int index = 0;
+		
+		String sql = prop.getProperty("checkDay");
+		
+		try {
+			ps = con.prepareStatement(sql);
+			
+			ps.setInt(1, ageValue);
+			ps.setInt(2, ageValue+10);
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				arrayDay[index] = rs.getInt(1);
+				index++;
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(ps);
+		}
+		
+		return arrayDay;
+	}
+
+	public int[] checkGenderAge(Connection con, int genderValue) {
+		int[] arrayGenderAge = new int[5];
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		int index = 0;
+		
+		String sql = prop.getProperty("checkGenderAge");
+		
+		try {
+			ps = con.prepareStatement(sql);
+			if(genderValue == 1) ps.setString(1, "M");    // 해결!
+			else  ps.setString(1, "F");
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				for(int i = 0 ; i < 5 ; i++) {
+					arrayGenderAge[index] = rs.getInt(index+1);
+					index++;
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(ps);
+		}
+		
+		return arrayGenderAge;
 	}
 
 }

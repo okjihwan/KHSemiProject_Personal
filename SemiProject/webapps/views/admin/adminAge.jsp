@@ -303,6 +303,84 @@
 								}
 							}
 						});
+						
+						
+						var ctx = document.getElementById("myChart4")
+										.getContext('2d');
+
+						myChart4 = new Chart(ctx, {
+									type : 'bar',
+									data : {
+										labels : [ "1인", "2인", "3인", "4인", "가족",
+												"단체" ],
+										datasets : [ {
+											label : '여행인원',
+											data : result.arrayPersonnel,
+											backgroundColor : [
+													'rgba(255, 99, 132, 0.5)',
+													'rgba(54, 162, 235, 0.5)',
+													'rgba(255, 206, 86, 0.5)',
+													'rgba(75, 192, 192, 0.5)',
+													'rgba(153, 102, 255, 0.5)',
+													'rgba(255, 159, 64, 0.5)' ],
+											borderColor : [ 'rgba(255,99,132,1)',
+													'rgba(54, 162, 235, 1)',
+													'rgba(255, 206, 86, 1)',
+													'rgba(75, 192, 192, 1)',
+													'rgba(153, 102, 255, 1)',
+													'rgba(255, 159, 64, 1)' ],
+											borderWidth : 1
+										} ]
+									},
+									options : {
+										maintainAspectRatio : true,
+										scales : {
+											yAxes : [ {
+												ticks : {
+													beginAtZero : true
+												}
+											} ]
+										}
+									}
+								});
+						
+						var ctx = document.getElementById("myChart5")
+						.getContext('2d');
+
+						myChart5 = new Chart(ctx, {
+							type : 'bar',
+							data : {
+								labels : [ "1일", "2일", "3일", "4일", "5일",	"6일" ],
+								datasets : [ {
+									label : '여행일수',
+									data : result.arrayDay,
+									backgroundColor : [
+										'rgba(255, 99, 132, 0.5)',
+										'rgba(54, 162, 235, 0.5)',
+										'rgba(255, 206, 86, 0.5)',
+										'rgba(75, 192, 192, 0.5)',
+										'rgba(153, 102, 255, 0.5)',
+										'rgba(255, 159, 64, 0.5)' ],
+									borderColor : [ 'rgba(255,99,132,1)',
+										'rgba(54, 162, 235, 1)',
+										'rgba(255, 206, 86, 1)',
+										'rgba(75, 192, 192, 1)',
+										'rgba(153, 102, 255, 1)',
+										'rgba(255, 159, 64, 1)' ],
+									borderWidth : 1
+								} ]
+							},
+							options : {
+								maintainAspectRatio : true,
+								scales : {
+									yAxes : [ {
+										ticks : {
+											beginAtZero : true
+										}
+									} ]
+								}
+							}
+						});
 					}
 				});
 /* ======================== 화면 처음 접속 시 나오는 5개 그래프 - 선호지역 ========================  */				
@@ -497,7 +575,8 @@
 							}
 						});
 					}
-				}); --%>
+				});
+				--%> 
 			});
 /* ======================== 화면 처음 접속 시 나오는 5개 그래프 -여행 일수 ========================  */		
 		
@@ -513,6 +592,8 @@
 					url : '/planner/checkAge.ad?age=' + age,
 					data : {},
 					success : function(result) {
+						console.log("데이터 전송 확인");
+						console.log(result);
 						var cnv = document.getElementById("myChart1");
 						var ctx = cnv.getContext('2d');
 						myChart1.destroy();
@@ -521,8 +602,7 @@
 						myChart1 = new Chart(ctx, {
 							type : 'bar',
 							data : {
-								labels : [ "동구", "서구", "남구", "북구", "해운대구",
-										"동래구" ],
+								labels : [ "동구", "서구", "남구", "북구", "해운대구", "동래구" ],
 								datasets : [ {
 									label : '지역',
 									data : result.arrayAge,
@@ -573,6 +653,86 @@
 											'rgba(255,99,132,1)',
 											'rgba(54, 162, 235, 1)',],
 									borderWidth : 1
+								} ]
+							},
+							options : {
+								maintainAspectRatio : true,
+								scales : {
+									yAxes : [ {
+										ticks : {
+											beginAtZero : true
+										}
+									} ]
+								}
+							}
+						});
+						
+						var ctx = document.getElementById("myChart4")
+						.getContext('2d');
+
+						myChart4.destroy();
+						// myChart4.clear();
+						myChart4 = new Chart(ctx, {
+							type : 'bar',
+							data : {
+								labels : [ '1인', '2인', '3인', '4인', '가족', '단체'],
+								datasets : [ {
+									label : '여행인원',
+									data : result.arrayPersonnel,
+									backgroundColor : [
+										'rgba(255, 99, 132, 0.5)',
+										'rgba(54, 162, 235, 0.5)',
+										'rgba(255, 206, 86, 0.5)',
+										'rgba(75, 192, 192, 0.5)',
+										'rgba(153, 102, 255, 0.5)',
+										'rgba(255, 159, 64, 0.5)' ],
+								borderColor : [ 'rgba(255,99,132,1)',
+										'rgba(54, 162, 235, 1)',
+										'rgba(255, 206, 86, 1)',
+										'rgba(75, 192, 192, 1)',
+										'rgba(153, 102, 255, 1)',
+										'rgba(255, 159, 64, 1)' ],
+								borderWidth : 1
+								} ]
+							},
+							options : {
+								maintainAspectRatio : true,
+								scales : {
+									yAxes : [ {
+										ticks : {
+											beginAtZero : true
+										}
+									} ]
+								}
+							}
+						});
+						
+						var ctx = document.getElementById("myChart5")
+						.getContext('2d');
+
+						myChart5.destroy();
+						// myChart4.clear();
+						myChart5 = new Chart(ctx, {
+							type : 'bar',
+							data : {
+								labels : [ '1일', '2일', '3일', '4일', '5일', '6일'],
+								datasets : [ {
+									label : '여행일수',
+									data : result.arrayDay,
+									backgroundColor : [
+										'rgba(255, 99, 132, 0.5)',
+										'rgba(54, 162, 235, 0.5)',
+										'rgba(255, 206, 86, 0.5)',
+										'rgba(75, 192, 192, 0.5)',
+										'rgba(153, 102, 255, 0.5)',
+										'rgba(255, 159, 64, 0.5)' ],
+								borderColor : [ 'rgba(255,99,132,1)',
+										'rgba(54, 162, 235, 1)',
+										'rgba(255, 206, 86, 1)',
+										'rgba(75, 192, 192, 1)',
+										'rgba(153, 102, 255, 1)',
+										'rgba(255, 159, 64, 1)' ],
+								borderWidth : 1
 								} ]
 							},
 							options : {
