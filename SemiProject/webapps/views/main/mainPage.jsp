@@ -4,6 +4,7 @@
 <%@ page import="com.touchtrip.main.model.vo.*, java.util.*" %>	
 	
 <%
+	ArrayList<MainTop6Famous> listTop6 = (ArrayList<MainTop6Famous>)request.getAttribute("listTop6");
 	ArrayList<MainAllFamous> listAll = (ArrayList<MainAllFamous>)request.getAttribute("listAll");
 	ArrayList<MainAllFamous> listPage = (ArrayList<MainAllFamous>)request.getAttribute("listPage");
 	MainPagingInfo pageInfo = (MainPagingInfo)request.getAttribute("pageInfo");
@@ -17,6 +18,8 @@
 	
 	int i = 0;
 	int j = 0;
+	int k = 0;
+	int h = 0;
 %>	
 
 <!DOCTYPE html>
@@ -70,15 +73,15 @@
 </head>
 <body>
 	<%@ include file="../common/header.jsp"%>
-	
+
 	<div class="img">
-			<div class="content">
-				<h1 class="touch">Touch</h1>
-				<h1 class="trip">Trip</h1>
-				<!-- <h2 class="text"><button type="button" class="btn btn-primary">시작하기</button></h2> -->
-			</div>
-			<div class="img-cover"></div>
+		<div class="content">
+			<h1 class="touch">Touch</h1>
+			<h1 class="trip">Trip</h1>
+			<!-- <h2 class="text"><button type="button" class="btn btn-primary">시작하기</button></h2> -->
 		</div>
+		<div class="img-cover"></div>
+	</div>
 
 	<section>
 		<div class="container">
@@ -87,122 +90,107 @@
 			<div class="subText1">
 				어디를 가야할지 모르는 당신을 위해 준비했습니다 <br> 가장 인기있는 TOP6 여행지. 지금 바로 만나보시죠
 			</div>
-
 			
+								
 			<div class="card-group cardFamous">
 				<div class="card">
-					<img src="/planner/assets/images/부산1.jpg" class="card-img-top"
+					<img src="/planner/assets/images/<%= listTop6.get(0).gettName() %>.jpg" class="card-img-top"
 						alt="...">
 					<div class="card-body">
 						<div class="overTest"><button type="button" class="btn overTest">플래너<br />작성하러 가기</button></div>
-						<h5 class="card-title">Top 1</h5>
-						<p class="card-text">부산 해운대</p>
+						<p class="card-title" style="font-size: 28px; font-weight: bold;">Top 1</p> 
+						<p class="card-text" style="font-size: 24px; font-weight: bold;">[<%= listTop6.get(0).gettName() %>]</p>
+						<p class="card-text"><%= listTop6.get(0).gettContent() %></p>
+						<p class="card-text"><%= listTop6.get(0).gettAdress() %></p>
+						<p class="card-text"><%= listTop6.get(0).gettReview() %></p>
 						<p class="card-text">
-							부산 해운대는 사람이 엄청 많습니다 <br> 놀러 가실때는 눈치싸움 필수!!
-						</p>
-						<p class="card-text">
-							<small class="text-muted">#우정여행 #눈치싸움 필수</small>
-						</p>
-						<p class="card-text">
-							<small class="text-muted">평점 5.0 / 4.9</small>
+							<small class="text-muted">평점 <%= listTop6.get(0).gettScore() %> / 10.0</small>
 						</p>
 					</div>
 				</div>
+				
 				<div class="card cardFamous">
-					<img src="/planner/assets/images/부산2.jpg" class="card-img-top"
+					<img src="/planner/assets/images/<%= listTop6.get(1).gettName() %>.jpg" class="card-img-top"
 						alt="...">
 					<div class="card-body">
 						<div class="overTest"><button type="button" class="btn overTest">플래너<br />작성하러 가기</button></div>
-						<h5 class="card-title">Top 2</h5>
-						<p class="card-text">부산 감천문화마을</p>
+						<p class="card-title" style="font-size: 28px; font-weight: bold;">Top 2</p> 
+						<p class="card-text" style="font-size: 24px; font-weight: bold;">[<%= listTop6.get(1).gettName() %>]</p> 
+						<p class="card-text"><%= listTop6.get(1).gettContent() %></p>
+						<p class="card-text">위치 : <%= listTop6.get(1).gettAdress() %></p>
+						<p class="card-text">한줄 리뷰 : <%= listTop6.get(1).gettReview() %></p>
 						<p class="card-text">
-							여기는 진짜 사진찍기 좋아용 <br> 제일 꼭대기에서 보면 경치 진짜 이뻐용
-						</p>
-						<p class="card-text">
-							<small class="text-muted">#우정여행 #사진 찍기 좋은</small>
-						</p>
-						<p class="card-text">
-							<small class="text-muted">평점 5.0 / 4.8</small>
+							<small class="text-muted">평점 <%= listTop6.get(1).gettScore() %> / 10.0</small>
 						</p>
 					</div>
 				</div>
+				
 				<div class="card cardFamous">
-					<img src="/planner/assets/images/부산3.jpg" class="card-img-top"
+					<img src="/planner/assets/images/<%= listTop6.get(2).gettName() %>.jpg" class="card-img-top"
 						alt="...">
 					<div class="card-body">
 						<div class="overTest"><button type="button" class="btn overTest">플래너<br />작성하러 가기</button></div>
-						<h5 class="card-title">Top 3</h5>
-						<p class="card-text">부산 마린시티</p>
+						<p class="card-title" style="font-size: 28px; font-weight: bold;">Top 3</p> 
+						<p class="card-text" style="font-size: 24px; font-weight: bold;">[<%= listTop6.get(2).gettName() %>]</p>
+						<p class="card-text"><%= listTop6.get(2).gettContent() %></p>
+						<p class="card-text"><%= listTop6.get(2).gettAdress() %></p>
+						<p class="card-text"><%= listTop6.get(2).gettReview() %></p>
 						<p class="card-text">
-							야경 미친거 아니냐구~~!! <br> 내가 찍으면 저렇게 안나오던뎅..
-						</p>
-						<p class="card-text">
-							<small class="text-muted">#야경 #사진 찍기 좋은</small>
-						</p>
-						<p class="card-text">
-							<small class="text-muted">평점 5.0 / 4.8</small>
+							<small class="text-muted">평점 <%= listTop6.get(2).gettScore() %> / 10.0</small>
 						</p>
 					</div>
-				</div>
+				</div>				
 			</div>
 
 			<div class="card-group cardFamous">
 				<div class="card">
-					<img src="/planner/assets/images/부산1.jpg" class="card-img-top"
+					<img src="/planner/assets/images/<%= listTop6.get(3).gettName() %>.jpg" class="card-img-top"
 						alt="...">
 					<div class="card-body">
 						<div class="overTest"><button type="button" class="btn overTest">플래너<br />작성하러 가기</button></div>
-						<h5 class="card-title">Top 4</h5>
-						<p class="card-text">부산 해운대</p>
+						<p class="card-title" style="font-size: 28px; font-weight: bold;">Top 4</p> 
+						<p class="card-text" style="font-size: 24px; font-weight: bold;">[<%= listTop6.get(3).gettName() %>]</p>
+						<p class="card-text"><%= listTop6.get(3).gettContent() %></p>
+						<p class="card-text"><%= listTop6.get(3).gettAdress() %></p>
+						<p class="card-text"><%= listTop6.get(3).gettReview() %></p>
 						<p class="card-text">
-							부산 해운대는 사람이 엄청 많습니다 <br> 놀러 가실때는 눈치싸움 필수!!
-						</p>
-						<p class="card-text">
-							<small class="text-muted">#우정여행 #눈치싸움 필수</small>
-						</p>
-						<p class="card-text">
-							<small class="text-muted">평점 5.0 / 4.9</small>
+							<small class="text-muted">평점 <%= listTop6.get(3).gettScore() %> / 10.0</small>
 						</p>
 					</div>
 				</div>
+				
 				<div class="card cardFamous">
-					<img src="/planner/assets/images/부산2.jpg" class="card-img-top"
+					<img src="/planner/assets/images/<%= listTop6.get(4).gettName() %>.jpg" class="card-img-top"
 						alt="...">
 					<div class="card-body">
 						<div class="overTest"><button type="button" class="btn overTest">플래너<br />작성하러 가기</button></div>
-						<h5 class="card-title">Top 5</h5>
-						<p class="card-text">부산 감천문화마을</p>
+						<p class="card-title" style="font-size: 28px; font-weight: bold;">Top 5</p> 
+						<p class="card-text" style="font-size: 24px; font-weight: bold;">[<%= listTop6.get(4).gettName() %>]</p>
+						<p class="card-text"><%= listTop6.get(4).gettContent() %></p>
+						<p class="card-text"><%= listTop6.get(4).gettAdress() %></p>
+						<p class="card-text"><%= listTop6.get(4).gettReview() %></p>
 						<p class="card-text">
-							여기는 진짜 사진찍기 좋아용 <br> 제일 꼭대기에서 보면 경치 진짜 이뻐용
-						</p>
-						<p class="card-text">
-							<small class="text-muted">#우정여행 #사진 찍기 좋은</small>
-						</p>
-						<p class="card-text">
-							<small class="text-muted">평점 5.0 / 4.8</small>
+							<small class="text-muted">평점 <%= listTop6.get(4).gettScore() %> / 10.0</small>
 						</p>
 					</div>
 				</div>
+				
 				<div class="card cardFamous">
-					<img src="/planner/assets/images/부산3.jpg" class="card-img-top"
+					<img src="/planner/assets/images/<%= listTop6.get(5).gettName() %>.jpg" class="card-img-top"
 						alt="...">
 					<div class="card-body">
 						<div class="overTest"><button type="button" class="btn overTest">플래너<br />작성하러 가기</button></div>
-						<h5 class="card-title">Top 6</h5>
-						<p class="card-text">부산 마린시티</p>
+						<p class="card-title" style="font-size: 28px; font-weight: bold;">Top 6</p> 
+						<p class="card-text" style="font-size: 24px; font-weight: bold;">[<%= listTop6.get(5).gettName() %>]</p>
+						<p class="card-text"><%= listTop6.get(5).gettContent() %></p>
+						<p class="card-text"><%= listTop6.get(5).gettAdress() %></p>
+						<p class="card-text"><%= listTop6.get(5).gettReview() %></p>
 						<p class="card-text">
-							야경 미친거 아니냐구~~!! <br> 내가 찍으면 저렇게 안나오던뎅..
-						</p>
-						<p class="card-text">
-							<small class="text-muted">#야경 #사진 찍기 좋은</small>
-						</p>
-						<p class="card-text">
-							<small class="text-muted">평점 5.0 / 4.8</small>
+							<small class="text-muted">평점 <%= listTop6.get(5).gettScore() %> / 10.0</small>
 						</p>
 					</div>
-				</div>
-			</div>
-
+				</div>		
+			</div> 
 
 			<div class="mainText2">지역별 관광지 찾기</div>
 
@@ -257,8 +245,8 @@
 					<img src="/planner/assets/images/<%=listPage.get(j).getfName()%>.jpg"
 						class="card-img-top" alt="..." id="img<%= j %>">
 					<div class="card-body">
-						<h5 class="card-title" id="area<%= j %>"><%=listPage.get(j).getfArea()%></h5>
-						<p class="card-text" id="name<%= j %>"><%=listPage.get(j).getfName()%></p>
+						<h5 class="card-title" id="area<%= j %>" style="font-weight: bold;"><%=listPage.get(j).getfArea()%></h5>
+						<p class="card-text" id="name<%= j %>" style="font-weight: bold;">[<%=listPage.get(j).getfName()%>]</p>
 						<p class="card-text" id="address<%= j %>"><%=listPage.get(j).getfAddress()%></p>
 						<p class="card-text" id="phone<%= j %>"><%=listPage.get(j).getfPhone()%></p>
 						<p class="card-text" id="review<%= j %>"><%=listPage.get(j).getfReview()%></p>
@@ -277,8 +265,8 @@
 					<img src="/planner/assets/images/<%=listPage.get(j).getfName()%>.jpg"
 						class="card-img-top" alt="..." id="img<%= j %>">
 					<div class="card-body">
-						<h5 class="card-title" id="area<%= j %>"><%=listPage.get(j).getfArea()%></h5>
-						<p class="card-text" id="name<%= j %>"><%=listPage.get(j).getfName()%></p>
+						<h5 class="card-title" id="area<%= j %>" style="font-weight: bold;"><%=listPage.get(j).getfArea()%></h5>
+						<p class="card-text" id="name<%= j %>" style="font-weight: bold;">[<%=listPage.get(j).getfName()%>]</p>
 						<p class="card-text" id="address<%= j %>"><%=listPage.get(j).getfAddress()%></p>
 						<p class="card-text" id="phone<%= j %>"><%=listPage.get(j).getfPhone()%></p>
 						<p class="card-text" id="review<%= j %>"><%=listPage.get(j).getfReview()%></p>
@@ -297,8 +285,8 @@
 					<img src="/planner/assets/images/<%=listPage.get(j).getfName()%>.jpg"
 						class="card-img-top" alt="..." id="img<%= j %>">
 					<div class="card-body">
-						<h5 class="card-title" id="area<%= j %>"><%=listPage.get(j).getfArea()%></h5>
-						<p class="card-text" id="name<%= j %>"><%=listPage.get(j).getfName()%></p>
+						<h5 class="card-title" id="area<%= j %>" style="font-weight: bold;"><%=listPage.get(j).getfArea()%></h5>
+						<p class="card-text" id="name<%= j %>" style="font-weight: bold;">[<%=listPage.get(j).getfName()%>]</p>
 						<p class="card-text" id="address<%= j %>"><%=listPage.get(j).getfAddress()%></p>
 						<p class="card-text" id="phone<%= j %>"><%=listPage.get(j).getfPhone()%></p>
 						<p class="card-text" id="review<%= j %>"><%=listPage.get(j).getfReview()%></p>
@@ -316,8 +304,8 @@
 					<img src="/planner/assets/images/<%=listPage.get(j).getfName()%>.jpg"
 						class="card-img-top" alt="..." id="img<%= j %>">
 					<div class="card-body">
-						<h5 class="card-title" id="area<%= j %>"><%=listPage.get(j).getfArea()%></h5>
-						<p class="card-text" id="name<%= j %>"><%=listPage.get(j).getfName()%></p>
+						<h5 class="card-title" id="area<%= j %>" style="font-weight: bold;"><%=listPage.get(j).getfArea()%></h5>
+						<p class="card-text" id="name<%= j %>" style="font-weight: bold;">[<%=listPage.get(j).getfName()%>]</p>
 						<p class="card-text" id="address<%= j %>"><%=listPage.get(j).getfAddress()%></p>
 						<p class="card-text" id="phone<%= j %>"><%=listPage.get(j).getfPhone()%></p>
 						<p class="card-text" id="review<%= j %>"><%=listPage.get(j).getfReview()%></p>
@@ -332,36 +320,36 @@
 			
 			<% } %>
 			
-
+			<br /><br />
 			
 		<div class="pagingArea" align="center">
-			<button onclick="selectPage(1);">
+			<button onclick="selectPage(1);" class="btn btn-outline-secondary">
 				&lt;&lt;
 			</button>		
 			
 			<% if(cur <= 1) { %>
-				<button disabled>&lt;</button>
+				<button disabled class="btn btn-outline-secondary">&lt;</button>
 			<% } else { %>
-				<button onclick="selectPage(<%= cur - 1 %>);">&lt;</button>
+				<button onclick="selectPage(<%= cur - 1 %>);" class="btn btn-outline-secondary">&lt;</button>
 			<% } %>
 			
 			<% for(int p = st; p <= ed; p++) { %>
 			
 				<% if(p == cur) { %>
-					<button disabled> <%= p %></button>
+					<button disabled class="btn btn-outline-secondary"> <%= p %></button>
 				<% } else { %>
-					<button onclick="selectPage(<%= p %>);"><%= p %></button>
+					<button onclick="selectPage(<%= p %>);" class="btn btn-outline-secondary"><%= p %></button>
 				<% } %>
 			
 			<% } %>
 			
 			<% if(cur >= mx) { %>
-				<button disabled>&gt;</button>
+				<button disabled class="btn btn-outline-secondary">&gt;</button>
 			<% } else { %>
-				<button onclick="selectPage(<%= cur + 1 %>);">&gt;</button>
+				<button onclick="selectPage(<%= cur + 1 %>);" class="btn btn-outline-secondary">&gt;</button>
 			<% } %>
 			
-			<button onclick="selectPage(<%= mx %>);">
+			<button onclick="selectPage(<%= mx %>);" class="btn btn-outline-secondary">
 				&gt;&gt;
 			</button>
 			
@@ -380,17 +368,17 @@
 					<div class="col-3">
 						<div class="list-group selectPerson">
 							<button type="button"
-								class="list-group-item list-group-item-action">강지원 관리자</button>
+								class="list-group-item list-group-item-action" onclick="recommendArea();">강지원 관리자</button>
 							<button type="button"
-								class="list-group-item list-group-item-action">구도욱 관리자</button>
+								class="list-group-item list-group-item-action" onclick="recommendArea();">구도욱 관리자</button>
 							<button type="button"
-								class="list-group-item list-group-item-action">곽민지 관리자</button>
+								class="list-group-item list-group-item-action" onclick="recommendArea();">곽민지 관리자</button>
 							<button type="button"
-								class="list-group-item list-group-item-action">박지환 관리자</button>
+								class="list-group-item list-group-item-action" onclick="recommendArea();">박지환 관리자</button>
 							<button type="button"
-								class="list-group-item list-group-item-action">전소연 관리자</button>
+								class="list-group-item list-group-item-action" onclick="recommendArea();">전소연 관리자</button>
 							<button type="button"
-								class="list-group-item list-group-item-action">이철원 관리자</button>
+								class="list-group-item list-group-item-action" onclick="recommendArea();">이철원 관리자</button>
 						</div>
 					</div>
 
@@ -465,6 +453,10 @@
 			</div>
 		</div>
 	</section>
+	
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
 
 	<%@ include file="../common/footer.jsp"%>
 	
@@ -559,32 +551,32 @@
 					/* 페이징 버튼 처리 */
 					
 					var $pagingBtnArea = $('.pagingArea');
-					var startBtn = '<button onclick="selectPage(1);">&lt;&lt;</button>';		
+					var startBtn = '<button onclick="selectPage(1);" class="btn btn-outline-secondary">&lt;&lt;</button>';		
 				    var prevBtn = '';
 					if ( cur <= 1) {
-						prevBtn = '<button disabled>&lt;</button>';
+						prevBtn = '<button disabled class="btn btn-outline-secondary">&lt;</button>';
 					} else {
-						prevBtn = '<button onclick="selectPage(' + (cur - 1) + ');">&lt;</button>';
+						prevBtn = '<button onclick="selectPage(' + (cur - 1) + ');" class="btn btn-outline-secondary">&lt;</button>';
 					}
 					
 					var pageBtn = '';
 					
 					for( var p = st; p <= ed ; p++) {
 						if( p == cur ) {
-							pageBtn += '<button disabled>' + p + '</button>';
+							pageBtn += '<button disabled class="btn btn-outline-secondary">' + p + '</button>';
 						} else {
-							pageBtn += '<button onclick="selectPage(' + p + ');">' + p + '</button>';
+							pageBtn += '<button onclick="selectPage(' + p + ');" class="btn btn-outline-secondary">' + p + '</button>';
 						}
 					}
 					
 							
 				    var nextBtn = '';
 				    if ( cur >= mx) {
-						nextBtn = '<button disabled>&gt;</button>';
+						nextBtn = '<button disabled class="btn btn-outline-secondary">&gt;</button>';
 					} else {
-						nextBtn = '<button onclick="selectPage(' + (cur + 1) + ');">&gt;</button>';
+						nextBtn = '<button onclick="selectPage(' + (cur + 1) + ');" class="btn btn-outline-secondary">&gt;</button>';
 					}
-				    var endBtn = '<button onclick="selectPage(' + mx +');">&gt;&gt;</button>';
+				    var endBtn = '<button onclick="selectPage(' + mx +');" class="btn btn-outline-secondary">&gt;&gt;</button>';
 					
 				    $pagingBtnArea.html(startBtn);
 				    $pagingBtnArea.html($pagingBtnArea.html() + prevBtn);

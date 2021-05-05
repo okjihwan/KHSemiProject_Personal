@@ -138,3 +138,9 @@ body{ background: whitesmoke; }
     color: rgb(0, 0, 0);
     z-index: 10;
   }
+  
+  .cardNameText{
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+  }

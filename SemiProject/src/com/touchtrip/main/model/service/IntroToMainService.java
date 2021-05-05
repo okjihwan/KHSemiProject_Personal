@@ -16,9 +16,11 @@ public class IntroToMainService {
 	public ArrayList<MainTop6Famous> selectTop6Famous() {
 		con = getConnection();
 		
+		ArrayList<MainTop6Famous> listTop6 = new ArrayList<>();
 		
+		listTop6 = dao.selectTop6Famous(con);
 		
-		return null;
+		return listTop6;
 	}
 	public ArrayList<MainAllFamous> selectAllFamous() {
 		con = getConnection();

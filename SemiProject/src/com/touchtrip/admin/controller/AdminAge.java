@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.touchtrip.admin.model.service.AdminService;
+import com.touchtrip.admin.model.vo.Admin;
 
 /**
  * Servlet implementation class AdminAge
@@ -31,53 +32,33 @@ public class AdminAge extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json; charset=UTF-8");
 		
-//		HashMap<String, int[]> h = new HashMap();
-		
 		int ageValue = Integer.parseInt(request.getParameter("age"));
-
-		System.out.println(ageValue);
 
 		AdminService service = new AdminService();
 		
-		
-		// ==================== 지역별 선호 인원 ====================
-		int[] arrayAge = new int[6];
+		int[] arrayArea = new int[6];
+		String[] arrayAreaName = new String[6];
+		int[] arrayFamous = new int[6];
+		String[] arrayFamousName = new String[6];
 		int[] arrayGender = new int[2];
 		int[] arrayPersonnel = new int[6];
 		int[] arrayDay = new int[6];
 		
-//		arrayAge = service.checkAge();
+		int todayJoinMember = service.countMemberWeek();
+		arrayArea = service.checkArea(ageValue);
+		arrayAreaName = service.checkAreaName(ageValue);
+		arrayFamous = service.checkFamous(ageValue);
+		arrayFamousName = service.checkFamousName(ageValue);
 		arrayGender = service.checkGender(ageValue);
 		arrayPersonnel = service.checkPersonnel(ageValue);
 		arrayDay = service.checkDay(ageValue);
-		
-		if(ageValue == 10) {
-			// 여기에 각각의 서비스 실행해서 값 가져오기
-			arrayAge = new int[] {10, 20, 30, 40, 50 ,60};
-		}
-		
-		else if (ageValue == 20) {
-			// 여기에 각각의 서비스 실행해서 값 가져오기
-			arrayAge = new int[] {60, 50, 40, 30, 20 ,10};
-		}
-		
-		else if (ageValue == 30) {
-			// 여기에 각각의 서비스 실행해서 값 가져오기
-			arrayAge = new int[] {60, 10, 50, 20, 40 ,30};
-		}
-		
-		else if (ageValue == 40) {
-			// 여기에 각각의 서비스 실행해서 값 가져오기
-			arrayAge = new int[] {10, 60, 20, 50, 30 ,40};
-		}
-		
-		else if (ageValue == 50) {
-			// 여기에 각각의 서비스 실행해서 값 가져오기
-			arrayAge = new int[] {10, 30, 20, 10, 30 ,40};
-		}
-		
-		HashMap<String, int[]> map = new HashMap<>();
-		map.put("arrayAge", arrayAge);
+			
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("todayJoinMember", todayJoinMember);
+		map.put("arrayArea", arrayArea);
+		map.put("arrayAreaName", arrayAreaName);
+		map.put("arrayFamous", arrayFamous);
+		map.put("arrayFamousName", arrayFamousName);
 		map.put("arrayGender", arrayGender);
 		map.put("arrayPersonnel", arrayPersonnel);
 		map.put("arrayDay", arrayDay);
