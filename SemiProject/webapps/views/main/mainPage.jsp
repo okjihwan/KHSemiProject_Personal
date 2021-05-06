@@ -123,10 +123,9 @@
 				</div>
 				<div class="card cardFamous"
 					style="margin: 30px 20px; box-shadow: 1px 1px 2px rgba(104, 104, 104, 0.884), -1px -1px 5px rgba(104, 104, 104, 0.884);">
-					<img src=/planner/assets/images
-						/<%= listTop6.get(1).gettName() %>.jpg" class="card-img-top"
-						alt="..."
-						style="width: 330px; height: 400px; border-bottom: 2px solid rgba(104, 104, 104, 0.884);">
+					<img src="/planner/assets/images/<%= listTop6.get(1).gettName()%>.jpg"
+						class="card-img-top" alt="..." style="width: 330px; height: 400px; border-bottom: 2px solid rgba(104, 104, 104, 0.884);">
+						
 					<div class="card-body">
 						<div class="overTest">
 							<button type="button" class="btn overTest"
@@ -667,32 +666,32 @@
 					/* 페이징 버튼 처리 */
 					
 					var $pagingBtnArea = $('.pagingArea');
-					var startBtn = '<button onclick="selectPage(1);">&lt;&lt;</button>';		
+					var startBtn = '<button onclick="selectPage(1);" class="btn btn-outline-secondary">&lt;&lt;</button>';		
 				    var prevBtn = '';
 					if ( cur <= 1) {
-						prevBtn = '<button disabled>&lt;</button>';
+						prevBtn = '<button disabled class="btn btn-outline-secondary">&lt;</button>';
 					} else {
-						prevBtn = '<button onclick="selectPage(' + (cur - 1) + ');">&lt;</button>';
+						prevBtn = '<button onclick="selectPage(' + (cur - 1) + ');" class="btn btn-outline-secondary">&lt;</button>';
 					}
 					
 					var pageBtn = '';
 					
 					for( var p = st; p <= ed ; p++) {
 						if( p == cur ) {
-							pageBtn += '<button disabled>' + p + '</button>';
+							pageBtn += '<button disabled class="btn btn-outline-secondary">' + p + '</button>';
 						} else {
-							pageBtn += '<button onclick="selectPage(' + p + ');">' + p + '</button>';
+							pageBtn += '<button onclick="selectPage(' + p + ');" class="btn btn-outline-secondary">' + p + '</button>';
 						}
 					}
 					
 							
 				    var nextBtn = '';
 				    if ( cur >= mx) {
-						nextBtn = '<button disabled>&gt;</button>';
+						nextBtn = '<button disabled class="btn btn-outline-secondary">&gt;</button>';
 					} else {
-						nextBtn = '<button onclick="selectPage(' + (cur + 1) + ');">&gt;</button>';
+						nextBtn = '<button onclick="selectPage(' + (cur + 1) + ');" class="btn btn-outline-secondary">&gt;</button>';
 					}
-				    var endBtn = '<button onclick="selectPage(' + mx +');">&gt;&gt;</button>';
+				    var endBtn = '<button onclick="selectPage(' + mx +');" class="btn btn-outline-secondary">&gt;&gt;</button>';
 					
 				    $pagingBtnArea.html(startBtn);
 				    $pagingBtnArea.html($pagingBtnArea.html() + prevBtn);

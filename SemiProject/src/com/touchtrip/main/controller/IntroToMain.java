@@ -77,6 +77,8 @@ public class IntroToMain extends HttpServlet {
 		request.setAttribute("listPage", listPage);
 		request.setAttribute("pageInfo", pageInfo);
 		
+		System.out.println(listTop6);
+		
 		request.getRequestDispatcher("views/main/mainPage.jsp").forward(request, response);
 		
 	}
