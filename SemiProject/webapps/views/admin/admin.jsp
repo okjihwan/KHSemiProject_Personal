@@ -165,7 +165,7 @@
                                             var myChart = new Chart(ctx, {
                                                 type: 'bar',
                                                 data: {
-                                                    labels: ["2021-04-28", "2021-04-29", "2021-04-30", "2021-05-01", "2021-05-02", "2021-05-03", "2021-05-04"],
+                                                    labels: ["2021-05-01", "2021-05-02", "2021-05-03", "2021-05-04", "2021-05-05", "2021-05-06", "2021-05-07"],
                                                     datasets: [{
                                                         label: '회원 수',
                                                         data: [<%= a.getSeventhJoin() %>, <%= a.getSixthJoin() %>, <%= a.getFifthJoin() %>, <%= a.getFourthJoin() %>, <%= a.getThirdJoin() %>, <%= a.getSecondJoin() %>, <%= a.getFirstJoin() %>],
@@ -222,7 +222,7 @@
                                             var myChart = new Chart(ctx, {
                                                 type: 'bar',
                                                 data: {
-                                                	labels: ["2021-04-28", "2021-04-29", "2021-04-30", "2021-05-01", "2021-05-02", "2021-05-03", "2021-05-04"],
+                                                	labels: ["2021-05-01", "2021-05-02", "2021-05-03", "2021-05-04", "2021-05-05", "2021-05-06", "2021-05-07"],
                                                     datasets: [{
                                                         label: '누적 회원 수',
                                                         data: [<%= o %>, <%= one %>, <%= two %>, <%= three %>, <%= four %>, <%= five %>, <%= six %>],
@@ -268,7 +268,7 @@
                             <div class="col">
                                 <div class="card setCardLine" style="width: 100%;">
                                     <div class="card-header">
-                                        공지사항 - 공지사항 글 목록 불러오기, 공지사항 글 쓰기 버튼추가 => 글 쓰기 게시판으로 링크
+                                        공지사항
                                     </div>
                                     <div class="list-group list-group-flush">
                                         <li class="list-group-item"><b>[공지사항]</b> 1. 이용 규칙 안내</li>

@@ -138,6 +138,9 @@ public class MemberDAO {
 			ps.setString(1, loginMember.getUserId());
 			ps.setString(2, loginMember.getUserPwd());
 			
+			System.out.println(loginMember.getUserId());
+			System.out.println(loginMember.getUserPwd());
+			
 			// 4. rs (select 실행 결과) 받아오기
 			rs = ps.executeQuery();
 			
@@ -154,6 +157,8 @@ public class MemberDAO {
 				result.setPhone(    	rs.getString(8));
 				result.setEnrollDate(  	rs.getDate(9));
 				result.setStatus(    	rs.getString(10));
+				
+//				System.out.println("실행 : " + result);
 			}
 			
 			System.out.println("조회 결과 : " + result);

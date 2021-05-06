@@ -45,10 +45,10 @@ public class MemberInsert extends HttpServlet {
 		String gender = request.getParameter("gender");
 		String phone = request.getParameter("phone");
 //		Date enrollDate = request.getParameter("enrollDate");
-		String status = request.getParameter("status");
+//		String status = request.getParameter("status");
 		
 	
-		Member m = new Member(userId, 1, userPwd, userName, nickName, age, gender, phone, null, status);
+		Member m = new Member(userId, 1, userPwd, userName, nickName, age, gender, phone, null, null);
 		
 		MemberService service = new MemberService();
 		
@@ -57,7 +57,7 @@ public class MemberInsert extends HttpServlet {
 		if(result > 0) {
 			
 			// 회원 가입 성공
-			response.sendRedirect("main/mainPage.jsp");
+			response.sendRedirect("/planner/checkMain.do");
 			
 		} else {
 			// 회원 가입 실패
