@@ -356,8 +356,8 @@ int h = 0;
 						class="card-img-top" alt="..." id="img<%=j%>"
 						style="width: 237px; height: 237px; border-bottom: 2px solid rgba(104, 104, 104, 0.884);">
 					<div class="card-body">
-						<h5 class="card-title" id="area<%=j%>"><%=listPage.get(j).getfArea()%></h5>
-						<p class="card-text" id="name<%=j%>"><%=listPage.get(j).getfName()%></p>
+						<h5 class="card-title" id="area<%=j%>" style="font-weight: bold;"><%=listPage.get(j).getfArea()%></h5>
+						<p class="card-text" id="name<%=j%>" style="font-weight: bold;"><%=listPage.get(j).getfName()%></p>
 						<p class="card-text" id="address<%=j%>"><%=listPage.get(j).getfAddress()%></p>
 						<p class="card-text" id="phone<%=j%>"><%=listPage.get(j).getfPhone()%></p>
 						<p class="card-text" id="review<%=j%>"><%=listPage.get(j).getfReview()%></p>
@@ -386,8 +386,8 @@ int h = 0;
 						class="card-img-top" alt="..." id="img<%=j%>"
 						style="width: 237px; height: 237px; border-bottom: 2px solid rgba(104, 104, 104, 0.884);">
 					<div class="card-body">
-						<h5 class="card-title" id="area<%=j%>"><%=listPage.get(j).getfArea()%></h5>
-						<p class="card-text" id="name<%=j%>"><%=listPage.get(j).getfName()%></p>
+						<h5 class="card-title" id="area<%=j%>" style="font-weight: bold;"><%=listPage.get(j).getfArea()%></h5>
+						<p class="card-text" id="name<%=j%>" style="font-weight: bold;"><%=listPage.get(j).getfName()%></p>
 						<p class="card-text" id="address<%=j%>"><%=listPage.get(j).getfAddress()%></p>
 						<p class="card-text" id="phone<%=j%>"><%=listPage.get(j).getfPhone()%></p>
 						<p class="card-text" id="review<%=j%>"><%=listPage.get(j).getfReview()%></p>

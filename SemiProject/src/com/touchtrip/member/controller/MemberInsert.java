@@ -1,8 +1,6 @@
 package com.touchtrip.member.controller;
 
 import java.io.IOException;
-import java.sql.Date;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -57,7 +55,7 @@ public class MemberInsert extends HttpServlet {
 		if(result > 0) {
 			
 			// 회원 가입 성공
-			response.sendRedirect("main/mainPage.jsp");
+	         response.sendRedirect("/planner/checkMain.do");
 			
 		} else {
 			// 회원 가입 실패

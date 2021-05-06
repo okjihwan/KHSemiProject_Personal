@@ -2,9 +2,7 @@ package com.touchtrip.member.model.service;
 
 import static com.touchtrip.common.JDBCTemplate.close;
 import static com.touchtrip.common.JDBCTemplate.getConnection;
-import static com.touchtrip.common.JDBCTemplate.close;
 import static com.touchtrip.common.JDBCTemplate.commit;
-import static com.touchtrip.common.JDBCTemplate.getConnection;
 import static com.touchtrip.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;

@@ -1,0 +1,108 @@
+.p1 {
+    width: 460px;
+    height : 800px;
+    margin-left : 10px;
+    margin-top: 20px;
+    box-shadow: 2px 2px 2px black;
+}
+
+.p2 {
+    width : 1345px;
+    margin-top: 20px;
+    margin-left : 40px;
+    box-shadow: 2px 2px 2px black;
+}
+
+
+/* 호텔, 장소 , 버튼 */
+.re_but {
+    background : skyblue;
+    color : white;
+    width : 150px;
+    height : 40px;
+    box-shadow : 2px 2px 5px gray;
+}
+
+#re_but_font {
+    font-size: 15px;
+}
+
+/* 좌측 검색 가장 큰 div  */
+.wrap1{
+    margin-top: 3px;
+}
+
+/* 검색 결과 영역 */
+
+.re_img {
+    float:left;
+    width: 200px;
+    height : 130px;
+    display : table;
+    border-collapse: collapse;
+    box-shadow: 2px 2px 2px black;
+}
+.re_text {
+    margin-left : 5px;
+    float:left;
+    text-align : center;
+    width: 236px;
+    height : 120px;
+    font-size: 15px;
+    border-collapse: collapse;
+}
+
+.re_text2 {
+    height : 184px;
+    width: 160px;
+    display : table;
+    border-collapse: collapse;
+    text-align : center;
+}
+
+.re_button {
+    float : left;
+    width: 236px;
+    height : 38px;
+    display : table;
+    border-collapse: collapse;
+}
+
+.searchspider {
+    overflow-y: scroll;
+    height : 705px;
+}
+
+.spidersector {
+    margin-top: 10px;
+    height : 184px;
+    box-shadow: 2px 2px 2px black;
+}
+
+
+[id*=cartImgNo] {
+    width: 200px;
+    height : 184px;
+}
+
+
+.pl1com {
+    width : 200px;
+    height : 80px;
+    margin : 5px 5px;
+    position : absolute;
+    background : skyblue;
+    color : white;
+    z-index: 2;
+}
+
+.spl1com {
+	position : absolute;
+	 z-index: 2;
+}
+
+#map {
+	position : relative;
+	z-index: 1;
+	box-shadow: 2px 2px 2px black;
+}

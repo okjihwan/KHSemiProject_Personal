@@ -41,7 +41,6 @@ public class MemberDAO {
 		try {
 			ps = con.prepareStatement(sql);
 			
-			// 데이터베이스 숫자 시작은 1부터
 			ps.setString(1, m.getUserId());
 			// ps.setInt(2, m.getUserType());
 			ps.setString(2, m.getUserPwd());
@@ -131,22 +130,19 @@ public class MemberDAO {
 		String sql = prop.getProperty("selectMember");
 		
 		try {
-			// 2. ps 에 준비한 쿼리 연결
 			ps = con.prepareStatement(sql);
 			
-			// 3. sql ? 채우기
 			ps.setString(1, loginMember.getUserId());
 			ps.setString(2, loginMember.getUserPwd());
 			
-			// 4. rs (select 실행 결과) 받아오기
 			rs = ps.executeQuery();
 			
 			if(rs.next()) {
 				result = new Member();
 				
-				result.setUserId(   	rs.getString(1));
+				result.setUserId(   	rs.getString("userId"));
 				result.setUserType( 	rs.getInt(2));
-				result.setUserPwd(  	rs.getString(3));
+				result.setUserPwd(  	rs.getString("password"));
 				result.setUserName( 	rs.getString(4));
 				result.setNickName( 	rs.getString(5));
 				result.setAge(      	rs.getInt(6));
