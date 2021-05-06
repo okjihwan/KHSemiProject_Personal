@@ -62,7 +62,7 @@
 			<ul class="navbar__menu">
 				<li><a
 					href="/planner/checkMain.do">Home</a></li>
-				<li><a href="">플래너</a></li>
+				<li><a href="http://localhost:8088/planner/views/planner/planner1.jsp">플래너</a></li>
 				<li><a
 					href="/planner/list.bo">커뮤니티</a></li>
 				<li><a

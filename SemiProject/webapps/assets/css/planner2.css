@@ -1,0 +1,124 @@
+.p1 {
+    margin : 30px 30px;
+    width : 700px;
+    box-shadow: 2px 2px 2px black;
+}
+
+.p2 {
+	margin : 30px 30px;
+}
+.selectlist {
+    font-size: 30px;
+    text-align: center;
+    background: rgb(105, 128, 177);
+    color : white;
+}
+
+.re_img {
+    float:left;
+    width: 300px;
+    height : 150px;
+    display : table;
+    border-collapse: collapse;
+    box-shadow: 2px 2px 2px black;
+}
+.re_text {
+    margin-left : 5px;
+    float:left;
+    text-align : center;
+    height : 120px;
+    font-size: 15px;
+    border-collapse: collapse !important;
+}
+
+.re_text2 {
+    width : 370px;
+    height : 200px;
+    border-collapse: collapse !important;
+}
+
+.re_button {
+    float : left;
+    width: 185px;
+    height : 50px;
+    border-collapse: collapse !important;
+}
+
+.re_button1 {
+	float : left;
+    width: 185px;
+    height : 50px;
+    border-collapse: collapse !important;
+}
+
+.searchspider {
+    overflow-y: scroll;
+    height : 748px;
+}
+
+.spidersector {
+    margin-top: 10px;
+    height : 253px;
+}
+
+
+[id*=cartImgNo] {
+    width: px;
+    height : 150px;
+}
+
+#calendar {
+ width: 950px;
+ height : 300px;
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  margin-bottom : 30px;
+    font-size: 14px;
+    box-shadow: 2px 2px 2px black;
+}
+
+.alertplan {
+    height : 150px;
+   
+}
+
+.finalplan {
+    margin-top: 0px;
+    height : 450px;
+    overflow-y: scroll;
+}
+
+.plandetail{
+    background: rgb(105, 128, 177);
+    text-align : center;
+    font-size : 25px;
+    margin-bottom : 0px;
+    color : white;
+}
+
+.planschedule{
+	box-shadow: 2px 2px 2px black;
+	 width: 950px;
+	 height: 465px
+}
+
+#colmoney {
+	width : 200px;
+}
+
+.detailplan{
+	text-align : center;
+	margin : 0px;
+}
+
+.finalplanbutton {
+	margin : 0px;
+}
+
+.finalplanbutton1 {
+	margin : 0px;
+}
+
+.howmany {
+	margin-top : 5px;
+	background-color : rgb(105, 128, 177);
+}

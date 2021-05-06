@@ -64,7 +64,7 @@
 			<ul class="navbar__menu">
 				<li><a
 					href="/planner/checkMain.do">Home</a></li>
-				<li><a href="">플래너</a></li>
+				<li><a href="http://localhost:8088/planner/views/planner/planner1.jsp">플래너</a></li>
 				<li><a
 					href="/planner/list.bo">커뮤니티</a></li>
 				<li><a
@@ -113,7 +113,7 @@
                 아이디&nbsp;
                 <input type="text" class="log-field" id="userId" name="userId" placeholder="Enter ID" required>
                 <br><br>
-                비밀번호<input type="userPwd" class="log-field" id="userPwd" name="userPwd" placeholder="Enter Password" required>
+                비밀번호<input type="password" class="log-field" id="userPwd" name="userPwd" placeholder="Enter Password" required>
             
                 <input type="checkbox" class="checkbox"><span>로그인 유지하기</span>
                 <button class="submit" onClick="loginMember();">L O G I N</button>
