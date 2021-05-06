@@ -35,7 +35,7 @@
 
 <!-- 프로필 수정 팝업 -->
 <script
-	src="http://localhost:8088/planner/assets/js/mainpage_profile.js" defer></script>
+	src="http://localhost:8088/planner/assets/js/mypage_profile.js" defer></script>
 
 <style>
 /* font url */

@@ -1,10 +1,11 @@
-.container { max-width: 1500px; }
+.container { max-width: 1500px;}
 .firstContent { margin-top: 50px; font-family: 'Jua', sans-serif; font-size: 18px;}
-.secondContent { margin-top: 20px; }
+.secondContent { margin-top: 20px;}
 .setCardLine2{ margin-top: 30px; }
 footer{ margin-top: 250px;}
 .pagination{ margin-left: 10%; margin-top: 20px;}
 .page-item>a{ width: 50px; text-align: center; color:black; font-weight: bold;}
+
 
 .card-header{
     font-size: 18px;

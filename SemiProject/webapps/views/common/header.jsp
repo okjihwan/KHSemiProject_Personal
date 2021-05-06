@@ -64,7 +64,7 @@
 					href="/planner/checkMain.do">Home</a></li>
 				<li><a href="">플래너</a></li>
 				<li><a
-					href="http://localhost:8088/planner/views/board/community.jsp">커뮤니티</a></li>
+					href="/planner/list.bo">커뮤니티</a></li>
 				<li><a
 					href="http://localhost:8088/planner/views/member/login.jsp">Login
 						/ Join</a></li>
