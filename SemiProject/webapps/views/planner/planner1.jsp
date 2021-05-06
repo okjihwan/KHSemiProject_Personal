@@ -10,7 +10,7 @@ int i = 0;
 
 <head>
 <meta charset="UTF-8">
-<title>플레너</title>
+<title>플래너</title>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
 	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"

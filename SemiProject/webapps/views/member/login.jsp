@@ -124,7 +124,7 @@
                 <div><input style="width: 70%;" type="text" class="join-field" id="userId_sign_in" name="userId" placeholder="Enter ID" required> 
                 &nbsp;<button style="width: 25%;" class="button" id="idCheck" >중복확인</button></div><br />
                 비밀번호
-                <div><input type="userPwd" class="join-field" id="userPwd_sign_in" name="userPwd" placeholder="Enter Password" required>
+                <div><input type="password" class="join-field" id="userPwd_sign_in" name="userPwd" placeholder="Enter Password" required>
                 </div><br>
                 이름
                 <div><input type="text" class="join-field" id="userName" name="userName" placeholder="Enter Name" required>
@@ -148,11 +148,11 @@
             </form>
         </div>
     </div>
-    <script>
+     <script>
         var x = document.getElementById("login");
         var y = document.getElementById("register");
         var z = document.getElementById("btn");
-        
+       
         function login(){
             x.style.left = "50px";
             y.style.left = "450px";
@@ -185,6 +185,8 @@
     			type : 'post',
     			data : { userId },
     			success : function( data ) {
+    				console.log(data);
+
 					
     				if( data > 0) {
     					alert("이미 사용 중인 아이디입니다.");
@@ -193,7 +195,7 @@
     				} 
     				
     			}, error : function(error){
-    				alert("다시 시도해주세요!" )
+    				// alert("다시 시도해주세요!" )
     			}
     	    });
     	});
@@ -215,7 +217,7 @@
     				} 
     				
     			}, error : function(){
-    				alert("다시 시도해주세요!" )
+    				// alert("다시 시도해주세요!" )
     			}
     		});
     	});
@@ -223,14 +225,16 @@
     	function loginMember() {
     		$("#login").submit();
 			// alert("로그인 성공!");
-    		location.href='/planner/checkMain.do';
+    		// location.href='/planner/views/main/mainPage.jsp';
     	}
     	
+    	/*
     	$("#login").submit(function(event){
     		if($("#userId").val() == "" || $("#userPwd").val() == "") alert("아이디와 비밀번호는 필수 값입니다!");
     		else return;
     		event.preventDefault();
     	});
+    	*/
 	
     </script>
 
