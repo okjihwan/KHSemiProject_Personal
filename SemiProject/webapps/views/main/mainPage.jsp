@@ -476,52 +476,45 @@
 				추천해드립니다.
 			</div>
 
-			<div class="warp2">
-				<div class="row">
-					<div class="col-3">
-						<div class="list-group selectPerson">
-							<button type="button"
-								class="list-group-item list-group-item-action"
-								onclick="recommendArea();">강지원 관리자</button>
-							<button type="button"
-								class="list-group-item list-group-item-action"
-								onclick="recommendArea();">구도욱 관리자</button>
-							<button type="button"
-								class="list-group-item list-group-item-action"
-								onclick="recommendArea();">곽민지 관리자</button>
-							<button type="button"
-								class="list-group-item list-group-item-action"
-								onclick="recommendArea();">박지환 관리자</button>
-							<button type="button"
-								class="list-group-item list-group-item-action"
-								onclick="recommendArea();">전소연 관리자</button>
-							<button type="button"
-								class="list-group-item list-group-item-action"
-								onclick="recommendArea();">이철원 관리자</button>
-						</div>
-					</div>
+<div class="warp2">
+            <div class="row">
+               <div class="col-3">
+                  <div class="list-group selectPerson">
+                     <button type="button"
+                        class="list-group-item list-group-item-action" onclick="recommendArea(1);">강지원 관리자</button>
+                     <button type="button"
+                        class="list-group-item list-group-item-action" onclick="recommendArea(2);">구도욱 관리자</button>
+                     <button type="button"
+                        class="list-group-item list-group-item-action" onclick="recommendArea(3);">곽민지 관리자</button>
+                     <button type="button"
+                        class="list-group-item list-group-item-action" onclick="recommendArea(4);">박지환 관리자</button>
+                     <button type="button"
+                        class="list-group-item list-group-item-action" onclick="recommendArea(5);">전소연 관리자</button>
+                     <button type="button"
+                        class="list-group-item list-group-item-action" onclick="recommendArea(6);">이철원 관리자</button>
+                  </div>
+               </div>
 
-					<div class="col-9">
-						<div class="card mb-3 selectedPerson">
-							<div class="row no-gutters">
-								<div class="col-md-4">
-									<img src="/planner/assets/images/부산2.jpg" alt="...">
-								</div>
-								<div class="col-md-8">
-									<div class="card-body">
-										<h5 class="card-title">지역 이름</h5>
-										<p class="card-text">여기 정말 좋아요. 저 믿고 한번 가보십쇼</p>
-										<p class="card-text">
-											<small class="text-muted"><a href="">다른 여행지 or
-													플래너 추천 보러가기..</a></small>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+               <div class="col-9">
+                  <div class="card mb-3 selectedPerson">
+                     <div class="row no-gutters">
+                        <div class="col-md-4">
+                           <img src="/planner/assets/images/부산2.jpg" alt="..." id="recommendImg">
+                        </div>
+                        <div class="col-md-8">
+                           <div class="card-body">
+                              <h5 class="card-title" id="recommendName" style="font-weight: bold">[지역 이름]</h5>
+                              <p class="card-text" id="recommendContent">여기 정말 좋아요. 저 믿고 한번 가보십쇼</p>
+                              <p class="card-text" id="recommendAddress">주소 : </p>
+                              <p class="card-text" id="recommendPhone">연락처 : </p>
+                              <p class="card-text" id="recommendReview">한줄 리뷰 : </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
 
 			<div class="warp2">
 				<div class="row">
@@ -575,133 +568,146 @@
 
 	<%@ include file="../common/footer.jsp"%>
 
-	<script>
-/* 		function selectArea(value){
-			$.ajax({
-				url: "/planner/choiceArea.ma?atype=" + value,
-				data: {},
-				success: function(result){
-					for(z = 0 ; z < result.length ; z++){
-						$("#area" + z).text(result[z].fArea);
-						$("#phone" + z).text(result[z].fPhone);
-						$("#name" + z).text(result[z].fName);
-						$("#adress" + z).text(result[z].fAdress);
-						console.log(z);
-						console.log(result[z]);
-					}
-				}
-			});
-		}; */
-	</script>
+ <script>
+/*       function selectArea(value){
+         $.ajax({
+            url: "/planner/choiceArea.ma?atype=" + value,
+            data: {},
+            success: function(result){
+               for(z = 0 ; z < result.length ; z++){
+                  $("#area" + z).text(result[z].fArea);
+                  $("#phone" + z).text(result[z].fPhone);
+                  $("#name" + z).text(result[z].fName);
+                  $("#adress" + z).text(result[z].fAdress);
+                  console.log(z);
+                  console.log(result[z]);
+               }
+            }
+         });
+      }; */
+   </script>
 
-	<script>
-		function selectArea(areaValue){
-			$.ajax({
-				url : "/planner/choiceArea.do?areaValue=" + areaValue,
-				data : {},
-				success : function(resultArea) {
-					
-					console.log("지역 선택 데이터 전송 확인");
-					console.log(resultArea);
-					
-					for( z = 0 ; z < resultArea.length ; z++){
-						console.log("반복문 실행 테스트");
-						$("#img" + z).attr("src", "/planner/assets/images/"+ resultArea[z].fName + ".jpg");
-						$("#area" + z).text(resultArea[z].fArea);
-						$("#name" + z).text(resultArea[z].fName);
-						$("#address" + z).text(resultArea[z].fAddress);
-						$("#phone" + z).text(resultArea[z].fPhone);
-						$("#review" + z).text(resultArea[z].fReview);
-						$("#score" + z).text(resultArea[z].fScore);
-					}
-				}
-			});
-		};
+   <script>
+      function selectArea(areaValue){
+         $.ajax({
+            url : "/planner/choiceArea.do?areaValue=" + areaValue,
+            data : {},
+            success : function(resultArea) {
+               
+               console.log("지역 선택 데이터 전송 확인");
+               console.log(resultArea);
+               
+               for( z = 0 ; z < resultArea.length ; z++){
+                  console.log("반복문 실행 테스트");
+                  $("#img" + z).attr("src", "/planner/assets/images/"+ resultArea[z].fName + ".jpg");
+                  $("#area" + z).text(resultArea[z].fArea);
+                  $("#name" + z).text(resultArea[z].fName);
+                  $("#address" + z).text(resultArea[z].fAddress);
+                  $("#phone" + z).text(resultArea[z].fPhone);
+                  $("#review" + z).text(resultArea[z].fReview);
+                  $("#score" + z).text(resultArea[z].fScore);
+               }
+            }
+         });
+      };
 
-    	function selectPage(value){
-			console.log(value);
-			$.ajax({
-				url : "/planner/choicePage.do?value=" + value,
-				data : {},
-				success : function(result) {			
-/* 					console.log(result);
-					console.log(result.listSelectPage[0].fArea);
-					console.log(result.pageInfo.startPage); */
-					/*
-						자바 스크립트 변수는 무조건 var, let, const 중 하나 입니다.
-						var : 일반 변수
-						let : { } 안에서만 사용하는 블록 변수
-						const : 상수
-						---------------------------
-						jsp --> servlet --> HTML
-						 즉 < % 과 같은 스크립트태그가 먼저 실행 된 후에
-						 HTML 및 자바 스크립트가 실행되기 때문에
-						 이 구문은 올바르지 않습니다.
-					*/
-					
-					/* console.log(result); */
-					/* console.log(result.listSelectPage); */
-					/* console.log(result.listSelectPage[0].fArea); */
-												
-	
-					for( z = 0 ; z < result.listSelectPage.length ; z++){
-						/* console.log("반복문 실행 테스트"); */
-						
-						$("#img" + z).attr("src", "/planner/assets/images/"+ result.listSelectPage[z].fName + ".jpg");
-						$("#area" + z).text(result.listSelectPage[z].fArea);
-						$("#name" + z).text(result.listSelectPage[z].fName);
-						$("#address" + z).text(result.listSelectPage[z].fAddress);
-						$("#phone" + z).text(result.listSelectPage[z].fPhone);
-						$("#review" + z).text(result.listSelectPage[z].fReview);
-						$("#score" + z).text(result.listSelectPage[z].fScore);
-					} 
-					
- 					var st = result.pageInfo.startPage;
-					var ed = result.pageInfo.endPage;
-					var mx = result.pageInfo.maxPage;
-					var limit = result.pageInfo.limit;
-					var listCount = result.pageInfo.listCount;
-					var cur = result.pageInfo.currentPage;
-					
-					/* 페이징 버튼 처리 */
-					
-					var $pagingBtnArea = $('.pagingArea');
-					var startBtn = '<button onclick="selectPage(1);" class="btn btn-outline-secondary">&lt;&lt;</button>';		
-				    var prevBtn = '';
-					if ( cur <= 1) {
-						prevBtn = '<button disabled class="btn btn-outline-secondary">&lt;</button>';
-					} else {
-						prevBtn = '<button onclick="selectPage(' + (cur - 1) + ');" class="btn btn-outline-secondary">&lt;</button>';
-					}
-					
-					var pageBtn = '';
-					
-					for( var p = st; p <= ed ; p++) {
-						if( p == cur ) {
-							pageBtn += '<button disabled class="btn btn-outline-secondary">' + p + '</button>';
-						} else {
-							pageBtn += '<button onclick="selectPage(' + p + ');" class="btn btn-outline-secondary">' + p + '</button>';
-						}
-					}
-					
-							
-				    var nextBtn = '';
-				    if ( cur >= mx) {
-						nextBtn = '<button disabled class="btn btn-outline-secondary">&gt;</button>';
-					} else {
-						nextBtn = '<button onclick="selectPage(' + (cur + 1) + ');" class="btn btn-outline-secondary">&gt;</button>';
-					}
-				    var endBtn = '<button onclick="selectPage(' + mx +');" class="btn btn-outline-secondary">&gt;&gt;</button>';
-					
-				    $pagingBtnArea.html(startBtn);
-				    $pagingBtnArea.html($pagingBtnArea.html() + prevBtn);
-				    $pagingBtnArea.html($pagingBtnArea.html() + pageBtn);
-				    $pagingBtnArea.html($pagingBtnArea.html() + nextBtn);
-				    $pagingBtnArea.html($pagingBtnArea.html() + endBtn);
-				}
-			});
-		};
-	</script>
+       function selectPage(value){
+         console.log(value);
+         $.ajax({
+            url : "/planner/choicePage.do?value=" + value,
+            data : {},
+            success : function(result) {         
+/*                console.log(result);
+               console.log(result.listSelectPage[0].fArea);
+               console.log(result.pageInfo.startPage); */
+               /*
+                  자바 스크립트 변수는 무조건 var, let, const 중 하나 입니다.
+                  var : 일반 변수
+                  let : { } 안에서만 사용하는 블록 변수
+                  const : 상수
+                  ---------------------------
+                  jsp --> servlet --> HTML
+                   즉 < % 과 같은 스크립트태그가 먼저 실행 된 후에
+                   HTML 및 자바 스크립트가 실행되기 때문에
+                   이 구문은 올바르지 않습니다.
+               */
+               
+               /* console.log(result); */
+               /* console.log(result.listSelectPage); */
+               /* console.log(result.listSelectPage[0].fArea); */
+                                    
+   
+               for( z = 0 ; z < result.listSelectPage.length ; z++){
+                  /* console.log("반복문 실행 테스트"); */
+                  
+                  $("#img" + z).attr("src", "/planner/assets/images/"+ result.listSelectPage[z].fName + ".jpg");
+                  $("#area" + z).text(result.listSelectPage[z].fArea);
+                  $("#name" + z).text(result.listSelectPage[z].fName);
+                  $("#address" + z).text(result.listSelectPage[z].fAddress);
+                  $("#phone" + z).text(result.listSelectPage[z].fPhone);
+                  $("#review" + z).text(result.listSelectPage[z].fReview);
+                  $("#score" + z).text(result.listSelectPage[z].fScore);
+               } 
+               
+                var st = result.pageInfo.startPage;
+               var ed = result.pageInfo.endPage;
+               var mx = result.pageInfo.maxPage;
+               var limit = result.pageInfo.limit;
+               var listCount = result.pageInfo.listCount;
+               var cur = result.pageInfo.currentPage;
+               
+               /* 페이징 버튼 처리 */
+               
+               var $pagingBtnArea = $('.pagingArea');
+               var startBtn = '<button onclick="selectPage(1);" class="btn btn-outline-secondary">&lt;&lt;</button>';      
+                var prevBtn = '';
+               if ( cur <= 1) {
+                  prevBtn = '<button disabled class="btn btn-outline-secondary">&lt;</button>';
+               } else {
+                  prevBtn = '<button onclick="selectPage(' + (cur - 1) + ');" class="btn btn-outline-secondary">&lt;</button>';
+               }
+               
+               var pageBtn = '';
+               
+               for( var p = st; p <= ed ; p++) {
+                  if( p == cur ) {
+                     pageBtn += '<button disabled class="btn btn-outline-secondary">' + p + '</button>';
+                  } else {
+                     pageBtn += '<button onclick="selectPage(' + p + ');" class="btn btn-outline-secondary">' + p + '</button>';
+                  }
+               }
+               
+                     
+                var nextBtn = '';
+                if ( cur >= mx) {
+                  nextBtn = '<button disabled class="btn btn-outline-secondary">&gt;</button>';
+               } else {
+                  nextBtn = '<button onclick="selectPage(' + (cur + 1) + ');" class="btn btn-outline-secondary">&gt;</button>';
+               }
+                var endBtn = '<button onclick="selectPage(' + mx +');" class="btn btn-outline-secondary">&gt;&gt;</button>';
+               
+                $pagingBtnArea.html(startBtn);
+                $pagingBtnArea.html($pagingBtnArea.html() + prevBtn);
+                $pagingBtnArea.html($pagingBtnArea.html() + pageBtn);
+                $pagingBtnArea.html($pagingBtnArea.html() + nextBtn);
+                $pagingBtnArea.html($pagingBtnArea.html() + endBtn);
+            }
+         });
+      };
+   </script>
+   
+   <script>
+      function recommendArea(value){
+         if(value == 4){
+            $("#recommendImg").attr("src", "/planner/assets/images/감천문화마을.jpg");
+            $("#recommendName").text("[부산 감천 문화마을]");
+            $("#recommendContent").text("꿈을 꾸는 부산의 마추픽추’라는 프로젝트가 당선되면서 낙후되었던 주거지가 문화마을로 탈바꿈한 부산의 전통마을.");
+            $("#recommendAddress").text("주소 : 부산광역시 사하구 감천2동 감내1로 200");
+            $("#recommendPhone").text("연락처 : 051-204-1444");
+            $("#recommendReview").text("한줄 리뷰 : 조용하고 아담한 마을이며, 볼거리도 많아 걸으며 힐링하기 좋은 장소입니다.");
+         }
+      }
+   </script>
 
 </body>
 
