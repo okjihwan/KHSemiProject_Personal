@@ -11,36 +11,37 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.touchtrip.Allplanner.map.model.service.MapService;
-import com.touchtrip.Allplanner.map.model.vo.Famous;
+import com.touchtrip.Allplanner.map.model.vo.MapData;
 
 /**
- * Servlet implementation class MapFamous
+ * Servlet implementation class moveToPlan
  */
-@WebServlet("/buttonArea.pl")
-public class MapFamous extends HttpServlet {
+@WebServlet("/moveToPlan.pl")
+public class moveToPlan extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MapFamous() {
-        super();
-        // TODO Auto-generated constructor stub
+ 
+    public moveToPlan() {
+
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json; charset=UTF-8");
 		
+		String type = request.getParameter("type");
+		String includedData = request.getParameter("includedData");
+		
 		MapService service = new MapService();
 		
-		ArrayList<Famous> MapService = new ArrayList<>();
+		ArrayList<MapData> movingList = service.goToPlan(type, );
 		
-		MapService = service.buttonFamous();
+		new Gson().toJson(movingList, response.getWriter());
 		
-		new Gson().toJson(MapService, response.getWriter());
+		
+		
+		
+		
+		
 	}
 
 	/**

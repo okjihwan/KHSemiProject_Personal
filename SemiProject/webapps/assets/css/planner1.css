@@ -46,15 +46,15 @@
     margin-left : 5px;
     float:left;
     text-align : center;
-    width: 236px;
-    height : 120px;
+    width: 235px;
+    height : 145px;
     font-size: 15px;
     border-collapse: collapse;
 }
 
 .re_text2 {
-    height : 184px;
-    width: 160px;
+    height : 145px;
+    width: 235px;
     display : table;
     border-collapse: collapse;
     text-align : center;
