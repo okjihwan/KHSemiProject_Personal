@@ -17,7 +17,7 @@ footer{ margin-top: 250px;}
 }
 
 
-/* FQA 리스트 */
+/* FQA 由ъ뒪�듃 */
 .listWrap {
     list-style: none;
     width: 100%;
@@ -26,7 +26,7 @@ footer{ margin-top: 250px;}
 }
 
 
-/* FAQ 질문 */
+/* FAQ 吏덈Ц */
 .listWrap a {
     color:#222;
     font-size:22px;
@@ -35,17 +35,7 @@ footer{ margin-top: 250px;}
     margin: 20 20 0 30px;
 }
 
-
-/* FAQ 질문 타입 */
-li a em {
-    margin: 15px;
-    border: 1px;
-    text-align: center;
-    width:200px;
-    display: inline-block;
-}
-
-/* FQA 답변 */
+/* FQA �떟蹂� */
 .answer {
     display: none;
     width: auto;

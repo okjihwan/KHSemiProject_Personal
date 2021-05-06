@@ -124,7 +124,7 @@
                 <div><input style="width: 70%;" type="text" class="join-field" id="userId_sign_in" name="userId" placeholder="Enter ID" required> 
                 &nbsp;<button style="width: 25%;" class="button" id="idCheck" >중복확인</button></div><br />
                 비밀번호
-                <div><input type="userPwd" class="join-field" id="userPwd" name="userPwd" placeholder="Enter Password" required>
+                <div><input type="userPwd" class="join-field" id="userPwd_sign_in" name="userPwd" placeholder="Enter Password" required>
                 </div><br>
                 이름
                 <div><input type="text" class="join-field" id="userName" name="userName" placeholder="Enter Name" required>
@@ -153,7 +153,6 @@
         var y = document.getElementById("register");
         var z = document.getElementById("btn");
         
-        
         function login(){
             x.style.left = "50px";
             y.style.left = "450px";
@@ -168,11 +167,11 @@
     	function insertMember() {
     		$("#register").submit();
 			alert("회원가입 성공!");
-    		location.href='/planner/main/mainPage.jsp';
+    		location.href='/planner/checkMain.do';
     	}
     	
     	$("#register").submit(function(event){
-    		if($("#userId").val() == "" || $("#userPwd").val() == "") alert("아이디와 비밀번호는 필수 값입니다.");
+    		if($("#userId_sign_in").val() == "" || $("#userPwd_sign_in").val() == "") alert("아이디와 비밀번호는 필수 값입니다.");
     		else return;
     		event.preventDefault();
     	});

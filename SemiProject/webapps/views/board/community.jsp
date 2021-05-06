@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.touchtrip.board.model.vo.*,  java.util.*, com.touchtrip.member.model.vo.*" %>
 <%
-	Member m = (Member)session.getAttribute("member");
+	/* Member m = (Member)session.getAttribute("member"); */
 	ArrayList<Board> list = (ArrayList<Board>)request.getAttribute("list");
 	PageInfo pi = (PageInfo) request.getAttribute("pi");
 	
@@ -97,7 +97,7 @@
                         </div>
                     </div>
                     <div>
-                    	<% if ( m != null) { %>
+                    	
                     	<br>
                    		<button type="button" class="btn btn-dark" style="float: right; background: black; width: 500px;"
                    		onclick="location.href='views/board/boardInsert.jsp'">작성하기</button>
@@ -115,7 +115,7 @@
 							location.href = "/planner/selectOne.bo?bno=" + bno; // GET 방식
 						});
 					</script>
-					<% } %>
+					
 						
                     
 					<div class="pagingArea" align="center">
