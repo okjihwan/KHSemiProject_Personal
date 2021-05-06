@@ -71,7 +71,7 @@
 					href="http://localhost:8088/planner/views/member/login.jsp">Login
 						/ Join</a></li>
 				<li><a
-					href="http://localhost:8088/planner/views/admin/admin.jsp">관리자
+					href="/planner/countMember.ad">관리자
 						페이지</a></li>
 				<li><a
 					href="http://localhost:8088/planner/views/myPage/myPage.jsp">마이페이지</a></li>
