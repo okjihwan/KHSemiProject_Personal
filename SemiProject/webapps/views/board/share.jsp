@@ -16,7 +16,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공유 목록</title>
+<title>TouchTrip > 공유 목록</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script src="/planner/assets/js/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
