@@ -167,8 +167,8 @@
     	function insertMember() {
     		$("#register").submit();
 			alert("회원가입 성공!");
-    		location.href='/planner/checkMain.do';
-    	}
+    		location.href="/planner/checkMain.do"
+    	};
     	
     	$("#register").submit(function(event){
     		if($("#userId_sign_in").val() == "" || $("#userPwd_sign_in").val() == "") alert("아이디와 비밀번호는 필수 값입니다.");

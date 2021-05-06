@@ -36,6 +36,8 @@ public class AdminHome extends HttpServlet {
 		Admin a = service.countMemberJoin();
 		int result = service.countMemberWeek();
 		
+		System.out.println(result);
+		
 		request.setAttribute("countMember", a);
 		request.setAttribute("weekJoin", result);
 			

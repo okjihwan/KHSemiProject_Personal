@@ -643,7 +643,7 @@ int h = 0;
                   $("#name" + z).text(resultArea[z].fName);
                   $("#address" + z).text(resultArea[z].fAddress);
                   $("#phone" + z).text(resultArea[z].fPhone);
-                  $("#review" + z).text(resultArea[z].fReview);
+                  $("#review" + z).text("평점" + resultArea[z].fReview + " / 10");
                   $("#score" + z).text(resultArea[z].fScore);
                }
             }
