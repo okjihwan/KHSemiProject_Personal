@@ -33,7 +33,7 @@ public class IntroToMain extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		ArrayList<MainTop6Famous> listTop6 = new ArrayList<>();
+		ArrayList<MainTop6Famous> listTop6 = new ArrayList<>();
 		ArrayList<MainAllFamous> listAll = new ArrayList<>();
 		ArrayList<MainAllFamous> listPage = new ArrayList<>(); 
 
@@ -66,14 +66,13 @@ public class IntroToMain extends HttpServlet {
 		MainPagingInfo pageInfo = new MainPagingInfo(startPage, endPage, maxPage, currentPage, limit, countPage);
 
 		
-//		listTop6 = service.selectTop6Famous();
+		listTop6 = service.selectTop6Famous();
 		listAll = service.selectAllFamous();
 		listPage = service.settingPage(currentPage);
 		
-//		System.out.println(listPage);
+//		System.out.println(listTop6);
 		
-
-		
+		request.setAttribute("listTop6", listTop6);
 		request.setAttribute("listAll", listAll);
 		request.setAttribute("listPage", listPage);
 		request.setAttribute("pageInfo", pageInfo);

@@ -12,6 +12,7 @@ import java.util.Properties;
 
 import com.touchtrip.admin.model.dao.AdminDAO;
 import com.touchtrip.main.model.vo.MainAllFamous;
+import com.touchtrip.main.model.vo.MainTop6Famous;
 
 import static com.touchtrip.common.JDBCTemplate.close;
 
@@ -208,6 +209,46 @@ public class MainDAO {
 		}
 		
 		return listArea;
+	}
+
+
+
+	public ArrayList<MainTop6Famous> selectTop6Famous(Connection con) {
+		ArrayList<MainTop6Famous> listTop6 = new ArrayList<>();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		String sql = prop.getProperty("selectTop6Famous");
+		
+		try {
+			ps = con.prepareStatement(sql);
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				MainTop6Famous m = new MainTop6Famous();
+				
+				m.settName(rs.getString("FNAME"));
+				m.settArea(rs.getString("FAREA"));
+				m.settContent(rs.getString("FCONTENT"));
+				m.settAdress(rs.getString("FADDRESS"));
+				m.settPhone(rs.getString("FPHONE"));
+				m.settReview(rs.getString("FRCONTENT"));
+				m.settScore(rs.getDouble("FRSCORE"));
+				
+				listTop6.add(m);
+				
+//				System.out.println(listTop6);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(ps);
+		}
+		
+		return listTop6;
 	}
 
 }

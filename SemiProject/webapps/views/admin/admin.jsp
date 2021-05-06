@@ -91,11 +91,11 @@
                                 연령
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/planner/views/admin/adminAge.jsp?age=10" id="showAge10">10대</a>
-                                <a class="dropdown-item" href="/planner/views/admin/adminAge.jsp?age=20" id="showAge20">20대</a>
-                                <a class="dropdown-item" href="/planner/views/admin/adminAge.jsp?age=30" id="showAge30">30대</a>
-                                <a class="dropdown-item" href="/planner/views/admin/adminAge.jsp?age=40" id="showAge40">40대</a>
-                                <a class="dropdown-item" href="/planner/views/admin/adminAge.jsp?age=50" id="showAge50">50대</a>
+                                <a class="dropdown-item" href="/planner/views/admin/adminAge.jsp?age=10&todayJoin=<%= a.getFirstJoin() %>"  id="showAge10">10대</a>
+                                <a class="dropdown-item" href="/planner/views/admin/adminAge.jsp?age=20&todayJoin=<%= a.getFirstJoin() %>" id="showAge20">20대</a>
+                                <a class="dropdown-item" href="/planner/views/admin/adminAge.jsp?age=30&todayJoin=<%= a.getFirstJoin() %>" id="showAge30">30대</a>
+                                <a class="dropdown-item" href="/planner/views/admin/adminAge.jsp?age=40&todayJoin=<%= a.getFirstJoin() %>" id="showAge40">40대</a>
+                                <a class="dropdown-item" href="/planner/views/admin/adminAge.jsp?age=50&todayJoin=<%= a.getFirstJoin() %>" id="showAge50">50대</a>
                             </div>
                         </div>
                     </div>
@@ -106,22 +106,8 @@
                                 성별
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/planner/views/admin/adminGender.jsp?gender=1" id="showGenderMan">남</a>
-                                <a class="dropdown-item" href="/planner/views/admin/adminGender.jsp?gender=2" id="showGenderWoman">여</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="titleText3">
-                        <div class="btn-group">
-                            <button class="btn btn-lg dropdown-toggle" type="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                여행 인원
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">1인</a>
-                                <a class="dropdown-item" href="#">2~4인</a>
-                                <a class="dropdown-item" href="#">단체</a>
-                                <a class="dropdown-item" href="#">가족</a>
+                                <a class="dropdown-item" href="/planner/views/admin/adminGender.jsp?gender=1&todayJoin=<%= a.getFirstJoin() %>" id="showGenderMan">남</a>
+                                <a class="dropdown-item" href="/planner/views/admin/adminGender.jsp?gender=2&todayJoin=<%= a.getFirstJoin() %>" id="showGenderWoman">여</a>
                             </div>
                         </div>
                     </div>
@@ -138,9 +124,7 @@
                                 style="background: whitesmoke;">Search</button>
                         </form>
                         <a class="navbar-brand"></a>
-                        <a class="navbar-brand" style="font-size: 28px;">
-                            ADMIN1
-                        </a>
+                        <div class="navbar-brand" style="font-size: 28px;" onclick="goMain();">메인페이지</div>
                     </div>
                 </nav>
 
@@ -324,6 +308,12 @@
             </div>
         </div>
     </div>
+    
+    <script>
+		function goMain(){
+			location.href="/planner/checkMain.do"
+		};
+    </script>
 </body>
 
 </html>

@@ -37,14 +37,30 @@ public class AdminGender extends HttpServlet {
 		
 		AdminService service = new AdminService();
 		
+		int[] arrayGenderArea = new int[6];
+		String[] arrayGenderAreaName = new String[6];
+		int[] arrayGenderFamous = new int[6];
+		String[] arrayGenderFamousName = new String[6];
 		int[] arrayGenderAge = new int[5];
-//		int[] arrayGenderPersonnel = new int[6];
-//		int[] arrayGenderDay = new int[6];
+		int[] arrayGenderPersonnel = new int[6];
+		int[] arrayGenderDay = new int[6];
 		
+		arrayGenderArea = service.checkGenderArea(genderValue);
+		arrayGenderAreaName = service.arrayGenderAreaName(genderValue);
+		arrayGenderFamous = service.checkGenderFamous(genderValue);
+		arrayGenderFamousName = service.checkGenderFamousName(genderValue);
 		arrayGenderAge = service.checkGenderAge(genderValue);
+		arrayGenderPersonnel = service.checkGenderPersonnel(genderValue);
+		arrayGenderDay = service.arrayGenderDay(genderValue);
 		
-		HashMap<String, int[]> map = new HashMap<>();
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("arrayGenderArea", arrayGenderArea);
+		map.put("arrayGenderAreaName", arrayGenderAreaName);
+		map.put("arrayGenderFamous", arrayGenderFamous);
+		map.put("arrayGenderFamousName", arrayGenderFamousName);
 		map.put("arrayGenderAge", arrayGenderAge);
+		map.put("arrayGenderPersonnel", arrayGenderPersonnel);
+		map.put("arrayGenderDay", arrayGenderDay);
 		
 		new Gson().toJson(map, response.getWriter());
 	}

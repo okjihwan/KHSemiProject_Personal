@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-<% int gender = Integer.parseInt((request.getParameter("gender").toString())); %>
+<% 
+	int gender = Integer.parseInt((request.getParameter("gender").toString()));
+	int todayJoin = Integer.parseInt((request.getParameter("todayJoin").toString()));
+%>
 
 <!DOCTYPE html>
 <html>
@@ -98,19 +101,6 @@
 							</div>
 						</div>
 					</div>
-					<div class="titleText3">
-						<div class="btn-group">
-							<button class="btn btn-lg dropdown-toggle" type="button"
-								data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false">여행 인원</button>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href="#">1인</a> <a
-									class="dropdown-item" href="#">2~4인</a> <a
-									class="dropdown-item" href="#">단체</a> <a class="dropdown-item"
-									href="#">가족</a>
-							</div>
-						</div>
-					</div>
 				</div>
 				<hr>
 			</div>
@@ -124,8 +114,8 @@
 							<button class="btn btn-outline-success" type="submit"
 								style="background: whitesmoke;">Search</button>
 						</form>
-						<a class="navbar-brand"></a> <a class="navbar-brand"
-							style="font-size: 28px;"> ADMIN1 </a>
+						<a class="navbar-brand"></a>
+						<div class="navbar-brand" style="font-size: 28px;" onclick="goMain();">메인페이지</div>
 					</div>
 				</nav>
 
@@ -138,10 +128,11 @@
 										오늘의 알림 <span class="badge badge-danger">3</span>
 									</div>
 									<div class="list-group list-group-flush">
-										<li class="list-group-item">신규 회원가입 
-										<span class="badge badge-primary">37</span> &nbsp;&nbsp; 새로운 글 
-										<span class="badge badge-primary">5</span> &nbsp;&nbsp; 답변 대기 문의 
-										<span class="badge badge-primary">4</span> &nbsp;&nbsp;										</li>
+										<li class="list-group-item">
+                                            신규 회원가입 <span class="badge badge-primary" id="joinMember"><%= todayJoin %></span> &nbsp;&nbsp;
+                                            새로운 글 <span class="badge badge-primary">5</span> &nbsp;&nbsp;
+                                            답변 대기 문의 <span class="badge badge-primary">4</span> &nbsp;&nbsp;
+                                        </li>
 									</div>
 								</div>
 							</div>
@@ -184,7 +175,7 @@
 						<div class="row">
 							<div class="col-4 showAgeContentText">
 								<div class="card text-center">
-									<div class="card-header">성별</div>
+									<div class="card-header">연령별</div>
 									<div class="card-body">
 										<div style="width: 490px">
 											<canvas id="myChart3"></canvas>
@@ -231,7 +222,7 @@
 	$(function() {
 /* ======================== 화면 처음 접속 시 나오는 5개 그래프 - 선호지역 ========================  */
 				$.ajax({
-					url : '/planner/checkGender.ad?gender=' + gender,   // 하나 해결!  : localhost:8088/planner/views/admin/planner/checkGender.ad?gender=1 404
+					url : '/planner/checkGender.ad?gender=' + <%= gender %>,   // 하나 해결!  : localhost:8088/planner/views/admin/planner/checkGender.ad?gender=1 404
 					data : {},
 					success : function(result) {
 						console.log(result);
@@ -242,10 +233,10 @@
 						myChart1 = new Chart(ctx, {
 							type : 'bar',
 							data : {
-								labels : [ "동구", "서구", "남구", "북구", "해운대구", "동래구" ],
+								labels : result.arrayGenderAreaName,
 								datasets : [ {
 									label : '지역',
-									data : result.arrayGenderAge,
+									data : result.arrayGenderArea,
 									backgroundColor : [
 											'rgba(255, 99, 132, 0.5)',
 											'rgba(54, 162, 235, 0.5)',
@@ -275,6 +266,45 @@
 							}
 						});
 						
+						var ctx = document.getElementById("myChart2")
+						.getContext('2d');
+
+						myChart2 = new Chart(ctx, {
+							type : 'bar',
+							data : {
+								labels : result.arrayGenderFamousName,
+								datasets : [ {
+									label : '관광지',
+									data : result.arrayGenderFamous,
+									backgroundColor : [
+										'rgba(255, 99, 132, 0.5)',
+										'rgba(54, 162, 235, 0.5)',
+										'rgba(255, 206, 86, 0.5)',
+										'rgba(75, 192, 192, 0.5)',
+										'rgba(153, 102, 255, 0.5)',
+										'rgba(255, 159, 64, 0.5)'],
+									borderColor : [
+										'rgba(255, 99, 132, 1)',
+										'rgba(54, 162, 235, 1)',
+										'rgba(255, 206, 86, 1)',
+										'rgba(75, 192, 192, 1)',
+										'rgba(153, 102, 255, 1)',
+										'rgba(255, 159, 64, 1)'],
+									borderWidth : 1
+								} ]
+							},
+							options : {
+								maintainAspectRatio : true,
+								scales : {
+									yAxes : [ {
+										ticks : {
+											beginAtZero : true
+										}
+									} ]
+								}
+							}
+						});
+						
 						var ctx = document.getElementById("myChart3")
 								.getContext('2d');
 
@@ -284,13 +314,19 @@
 								labels : [ '10대', '20대', '30대', '40대', '50대'],
 								datasets : [ {
 									label : '연령별',
-									data : result.arrayGender,
+									data : result.arrayGenderAge,
 									backgroundColor : [
-											'rgba(255, 99, 132, 0.5)',
-											'rgba(54, 162, 235, 0.5)',],
+										'rgba(255, 99, 132, 0.5)',
+										'rgba(54, 162, 235, 0.5)',
+										'rgba(255, 206, 86, 0.5)',
+										'rgba(75, 192, 192, 0.5)',
+										'rgba(153, 102, 255, 0.5)'],
 									borderColor : [
-											'rgba(255,99,132,1)',
-											'rgba(54, 162, 235, 1)',],
+										'rgba(255, 99, 132, 1)',
+										'rgba(54, 162, 235, 1)',
+										'rgba(255, 206, 86, 1)',
+										'rgba(75, 192, 192, 1)',
+										'rgba(153, 102, 255, 1)'],
 									borderWidth : 1
 								} ]
 							},
@@ -317,7 +353,7 @@
 												"단체" ],
 										datasets : [ {
 											label : '여행인원',
-											data : result.arrayPersonnel,
+											data : result.arrayGenderPersonnel,
 											backgroundColor : [
 													'rgba(255, 99, 132, 0.5)',
 													'rgba(54, 162, 235, 0.5)',
@@ -355,7 +391,7 @@
 								labels : [ "1일", "2일", "3일", "4일", "5일",	"6일" ],
 								datasets : [ {
 									label : '여행일수',
-									data : result.arrayDay,
+									data : result.arrayGenderDay,
 									backgroundColor : [
 										'rgba(255, 99, 132, 0.5)',
 										'rgba(54, 162, 235, 0.5)',
@@ -395,8 +431,6 @@
 					url : '/planner/checkGender.ad?gender=' + gender,
 					data : {},
 					success : function(result) {
-						console.log("데이터 전송 확인");
-						console.log(result);
 						var cnv = document.getElementById("myChart1");
 						var ctx = cnv.getContext('2d');
 						myChart1.destroy();
@@ -405,10 +439,10 @@
 						myChart1 = new Chart(ctx, {
 							type : 'bar',
 							data : {
-								labels : [ "동구", "서구", "남구", "북구", "해운대구", "동래구" ],
+								labels : result.arrayGenderAreaName,
 								datasets : [ {
 									label : '지역',
-									data : result.arrayAge,
+									data : result.arrayGenderArea,
 									backgroundColor : [
 											'rgba(255, 99, 132, 0.5)',
 											'rgba(54, 162, 235, 0.5)',
@@ -437,6 +471,47 @@
 							}
 						});
 						
+						var ctx = document.getElementById("myChart2")
+						.getContext('2d');
+
+						myChart2.destroy();
+						
+						myChart2 = new Chart(ctx, {
+							type : 'bar',
+							data : {
+								labels : result.arrayGenderFamousName,
+								datasets : [ {
+									label : '관광지',
+									data : result.arrayGenderFamous,
+									backgroundColor : [
+										'rgba(255, 99, 132, 0.5)',
+										'rgba(54, 162, 235, 0.5)',
+										'rgba(255, 206, 86, 0.5)',
+										'rgba(75, 192, 192, 0.5)',
+										'rgba(153, 102, 255, 0.5)',
+										'rgba(255, 159, 64, 0.5)'],
+									borderColor : [
+										'rgba(255, 99, 132, 1)',
+										'rgba(54, 162, 235, 1)',
+										'rgba(255, 206, 86, 1)',
+										'rgba(75, 192, 192, 1)',
+										'rgba(153, 102, 255, 1)',
+										'rgba(255, 159, 64, 1)'],
+									borderWidth : 1
+								} ]
+							},
+							options : {
+								maintainAspectRatio : true,
+								scales : {
+									yAxes : [ {
+										ticks : {
+											beginAtZero : true
+										}
+									} ]
+								}
+							}
+						});
+						
 						var ctx = document.getElementById("myChart3")
 								.getContext('2d');
 
@@ -445,16 +520,22 @@
 						myChart3 = new Chart(ctx, {
 							type : 'bar',
 							data : {
-								labels : [ '남', '여'],
+								labels : [ '10대', '20대', '30대', '40대', '50대'],
 								datasets : [ {
-									label : '성별',
+									label : '연령',
 									data : result.arrayGenderAge,
 									backgroundColor : [
-											'rgba(255, 99, 132, 0.5)',
-											'rgba(54, 162, 235, 0.5)',],
+										'rgba(255, 99, 132, 0.5)',
+										'rgba(54, 162, 235, 0.5)',
+										'rgba(255, 206, 86, 0.5)',
+										'rgba(75, 192, 192, 0.5)',
+										'rgba(153, 102, 255, 0.5)'],
 									borderColor : [
-											'rgba(255,99,132,1)',
-											'rgba(54, 162, 235, 1)',],
+										'rgba(255, 99, 132, 1)',
+										'rgba(54, 162, 235, 1)',
+										'rgba(255, 206, 86, 1)',
+										'rgba(75, 192, 192, 1)',
+										'rgba(153, 102, 255, 1)'],
 									borderWidth : 1
 								} ]
 							},
@@ -481,7 +562,7 @@
 								labels : [ '1인', '2인', '3인', '4인', '가족', '단체'],
 								datasets : [ {
 									label : '여행인원',
-									data : result.arrayPersonnel,
+									data : result.arrayGenderPersonnel,
 									backgroundColor : [
 										'rgba(255, 99, 132, 0.5)',
 										'rgba(54, 162, 235, 0.5)',
@@ -521,7 +602,7 @@
 								labels : [ '1일', '2일', '3일', '4일', '5일', '6일'],
 								datasets : [ {
 									label : '여행일수',
-									data : result.arrayDay,
+									data : result.arrayGenderDay,
 									backgroundColor : [
 										'rgba(255, 99, 132, 0.5)',
 										'rgba(54, 162, 235, 0.5)',
@@ -552,6 +633,16 @@
 					}
 				});
 			};
+		</script>
+		
+		<script>
+			function selectAge(value){
+				location.href = '/planner/views/admin/adminAge.jsp?age=' + value + '&todayJoin=' + <%= todayJoin %>
+			}
+			
+	    	function goMain(){
+	    		location.href="/planner/checkMain.do"
+	    	};
 		</script>
 	</body>
 </html>

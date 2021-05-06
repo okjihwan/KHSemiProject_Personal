@@ -36,8 +36,6 @@ public class MainChoiceArea extends HttpServlet {
 		
 		int value = Integer.parseInt(request.getParameter("areaValue"));
 		
-		System.out.println(value);
-		
 		IntroToMainService service = new IntroToMainService();
 		
 		listArea = service.selectArea(value);
