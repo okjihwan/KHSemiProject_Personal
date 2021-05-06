@@ -180,12 +180,10 @@ int i = 0;
 
 			console.log(type + " : " + $('#searchKeyword').val());
 
-			$
-					.ajax({
+			$.ajax({
 						url : '/planner/data.search',
 						data : {
-							type : type,
-							keyword : $('#searchKeyword').val()
+						  type : type, keyword : $('#searchKeyword').val()
 						},
 						success : function(data) {
 							/*console.log(data);*/
@@ -195,6 +193,7 @@ int i = 0;
 							for (var i = 0; i < data.length; i++) {
 								// 내용을 담을 div
 								var $listdiv = $('<div class="spidersector">');
+								var $textbtndiv = $('<div class ="re_text">')
 								var $text = $('<div class="re_text2 border border-primary">');
 								var $btn = $('<button class="btn btn-outline-info re_button" >');
 								$btn.text("추가");
@@ -205,10 +204,9 @@ int i = 0;
 								var $address = $('<p>').text(data[i].address);
 								var $phone = $('<p>').text(data[i].phone);
 
-								$text.append($name).append($address).append(
-										$phone).append($btn);
-								$listdiv.append($img).append($text);
-
+								$text.append($name).append($address).append($phone);
+								$textbtndiv.append($text).append($btn);
+								$listdiv.append($img).append($textbtndiv);
 								$divList.append($listdiv);
 
 								/*console.log($divList);*/
@@ -218,31 +216,23 @@ int i = 0;
 									.each(
 											function(idx, item) {
 												$(this)
-														.on(
-																'click',
-																function() {
-																	if (planList
-																			.includes(data[idx])) {
+														.on('click', function() {
+																	if (planList.includes(data[idx])) {
 																		for (let i = 0; i < planList.length; i++) {
 																			if (planList[i] === data[idx]) {
-																				planList
-																						.splice(
-																								i,
-																								1);
+																				planList.splice(i, 1);
 																				i--;
 																			}
 																		}
 																		alert("해당 지역 삭제!");
 																	} else {
-																		planList
-																				.push(data[idx]);
+																		planList.push(data[idx]);
 																		alert("해당 지역 등록 완료!");
 																	}
-																	console
-																			.log(planList);
+																	console.log(planList);
 																});
 											});
-							/* 
+							/*  
 							console.log("된다");
 							
 							// 데이터를 담을 객체 생성

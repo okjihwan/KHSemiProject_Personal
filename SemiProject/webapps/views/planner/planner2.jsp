@@ -146,13 +146,15 @@
 								<div class="re_text">
 									<div class="re_text2 border border-primary">
 										<p><%=saved.getComp()%></p>
+										<p><%=saved.getAddress()%></p>
+										<p><%=saved.getPhone()%></p>
 									</div>
 									<div>
-										<button type="submit" class="btn btn-outline-info re_button ">
+										<button type="submit" class="btn btn-outline-info re_button" id="moveToPlan">
 											<span id="re_but_font">일정등록</span>
 										</button>
 										<button type="submit"
-											class="btn btn-outline-danger re_button1 ">
+											class="btn btn-outline-danger re_button1" id="deletePlan">
 											<span id="re_but_font">일정삭제</span>
 										</button>
 									</div>
@@ -211,7 +213,7 @@
 											<td id="colfpbutton">
 												<button type="submit"
 													class="btn btn-outline-info finalplanbutton ">
-													<span id="re_but_font">등록하기</span>
+													<span id="re_but_font">저장하기</span>
 												</button>
 												<button type="submit"
 													class="btn btn-outline-danger finalplanbutton1 ">
@@ -278,9 +280,6 @@
 									</tbody>
 								</table>
 
-
-								<div class="alertplan"></div>
-
 							</div>
 						</div>
 					</div>
@@ -289,6 +288,26 @@
 		</div>
 	</div>
 	<%@ include file="../common/footer.jsp"%>
+	
+	<!--  
+	
+	<script>
+	$('#moveToPlan').on('click', function(){
+		
+		$.ajax({
+			url : '/planner/moveToPlan.pl',
+			data : mapData,
+			success : function(data) {
+				console.log(data);
+			}
+		});
+		
+	});
+	
+	
+	</script>
+	
+	-->
 
 </body>
 </html>

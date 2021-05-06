@@ -17,7 +17,7 @@
 .re_img {
     float:left;
     width: 300px;
-    height : 150px;
+    height : 198px;
     display : table;
     border-collapse: collapse;
     box-shadow: 2px 2px 2px black;
@@ -26,14 +26,14 @@
     margin-left : 5px;
     float:left;
     text-align : center;
-    height : 120px;
+    height : 150px;
     font-size: 15px;
     border-collapse: collapse !important;
 }
 
 .re_text2 {
     width : 370px;
-    height : 200px;
+    height : 150px;
     border-collapse: collapse !important;
 }
 
@@ -58,13 +58,15 @@
 
 .spidersector {
     margin-top: 10px;
-    height : 253px;
+    height : 202px;
+    width : 680px;
+    box-shadow: 2px 2px 2px black;
 }
 
 
 [id*=cartImgNo] {
-    width: px;
-    height : 150px;
+    width: 300px;
+    height : 198px;
 }
 
 #calendar {
