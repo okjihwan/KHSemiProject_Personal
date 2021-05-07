@@ -535,18 +535,17 @@ int h = 0;
 						<div class="card mb-3 selectedPerson">
 							<div class="row no-gutters">
 								<div class="col-md-4">
-									<img src="/planner/assets/images/부산2.jpg" alt="..."
+									<img src="/planner/assets/images/해운대 해수욕장.jpg" alt="..."
 										id="recommendImg">
 								</div>
 								<div class="col-md-8">
 									<div class="card-body">
 										<h5 class="card-title" id="recommendName"
-											style="font-weight: bold">[지역 이름]</h5>
-										<p class="card-text" id="recommendContent">여기 정말 좋아요. 저 믿고
-											한번 가보십쇼</p>
-										<p class="card-text" id="recommendAddress">주소 :</p>
-										<p class="card-text" id="recommendPhone">연락처 :</p>
-										<p class="card-text" id="recommendReview">한줄 리뷰 :</p>
+											style="font-weight: bold">[해운대]</h5>
+										<p class="card-text" id="recommendContent">여름철 최고의 인기, 국내 1급의 해수욕장으로 수심이 얕고 조수의 변화도 심하지 않아 해수욕장으로서의 조건이 좋다</p>
+										<p class="card-text" id="recommendAddress">주소 : 부산광역시 해운대구 우동</p>
+										<p class="card-text" id="recommendPhone">연락처 : 051-749-7601</p>
+										<p class="card-text" id="recommendReview">한줄 리뷰 : 워낙 유명한 곳이지만 성수기때는 늘 주차와의 전쟁입니다 ㅠㅠ 봄이나 겨울에 오면 더 좋을것 같습니다</p>
 									</div>
 								</div>
 							</div>
@@ -643,8 +642,8 @@ int h = 0;
                   $("#name" + z).text(resultArea[z].fName);
                   $("#address" + z).text(resultArea[z].fAddress);
                   $("#phone" + z).text(resultArea[z].fPhone);
-                  $("#review" + z).text("평점" + resultArea[z].fReview + " / 10");
-                  $("#score" + z).text(resultArea[z].fScore);
+                  $("#review" + z).text(resultArea[z].fReview);
+                  $("#score" + z).text("평점" + resultArea[z].fScore + " / 10");
                }
             }
          });
