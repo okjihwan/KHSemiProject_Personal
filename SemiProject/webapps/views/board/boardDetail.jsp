@@ -101,106 +101,87 @@ Board b = (Board) request.getAttribute("board"); // 서블릿(서버)이 보낸 
 		</nav>
 	</header>
 
-	<section style="margin-left: 180px;">
-		<div class="container">
-			<div class="row firstContent">
-				<div class="col-10">
-					<div class="card setCardLine" style="width: 100%;">
-						<div class="list-group list-group-flush">
-							<li class="list-group-item"><a href="/planner/list.bo">자유게시판</a>
-								&nbsp;&nbsp; <a href="share.jsp">공유게시판</a> &nbsp;&nbsp; <a
-								href="review.jsp">리뷰게시판</a> &nbsp;&nbsp;</li>
-						</div>
-					</div>
-				</div>
-			</div>
+	 <section style="margin-left: 180px;">
+        <div class="container">
+            <div class="row firstContent">
+                <div class="col-10">
+                    <div class="card setCardLine" style="width: 100%;">
+                        <div class="list-group list-group-flush">
+                            <li class="list-group-item">
+								<a href="/planner/list.bo">자유게시판</a> &nbsp;&nbsp;
+                                <a href="share.jsp">공유게시판</a> &nbsp;&nbsp;
+                                <a href="review.jsp">리뷰게시판</a> &nbsp;&nbsp;
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="row secondContent">
+                <div class="col-10">
+                    <div class="card setCardLine" style="width: 100%;">
+                        <div class="card-header">
+                            조회한 게시판
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<div class="container">
 			<div class="row secondContent">
 				<div class="col-10">
-					<div class="card setCardLine" style="width: 100%;">
-						<div class="card-header">조회한 게시판</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="container">
-			<div class="row secondContent">
-				<div class="col-10">
-					<form action="/planner/insert.bo" method="post"
-						enctype="multipart/form-data">
+					<form action="/planner/insert.bo" method="post" enctype="multipart/form-data">
 						<div class="card setCardLine" style="width: 100%;">
 							<div class="card-header">
-								<span> [<%=((b.getBtype() == 1)
-		? "공지사항"
-		: (b.getBtype() == 2)
-				? "커뮤니티"
-				: (b.getBtype() == 3) ? "묻답" : (b.getBtype() == 4) ? "플래너공유" : (b.getBtype() == 5) ? "포토리뷰" : "한줄리뷰")%>]
-									&nbsp; 제목 &nbsp; : &nbsp; <%=b.getBtitle()%>
-								</span> <span> <span class="writeDate" style="float: right;">작성일
-										: <%=b.getBdate()%> || * <%=b.getBcount()%></span>
-								</span><br>
-								<%-- 파일이 null이 아니면서 파일 이름이 길이가 0보다 크다면(파일이 있다면) --%>
-								<%
-								if (b.getBoardfile() != null && b.getBoardfile().length() > 0) {
-								%>
-								<small>파일 : <a
-									href="/planner/resources/boardUploadFiles/<%=b.getBoardfile()%>"
-									style="color: black;" download> <%=b.getBoardfile()%></a>
-								</small>
-								<%
-								}
-								%>
-								<span class="writeName" style="float: right;">작성자 : <%=b.getBwriter()%></span>
+								<span>
+	                            	[<%= ((b.getBtype() == 1) ? "공지사항" : (b.getBtype() == 2) ? "커뮤니티" 
+                            			   : (b.getBtype() == 3) ? "묻답" : (b.getBtype() == 4) ? "플래너공유"
+                            			   : (b.getBtype() == 5) ? "포토리뷰" : "한줄리뷰") %>] &nbsp;
+	                            	 제목 &nbsp; : &nbsp; <%= b.getBtitle() %>
+	                            </span>
+								<span>
+	                                <span class="writeDate" style="float: right;">작성일 : <%= b.getBdate() %> || * <%= b.getBcount() %></span>
+	                            </span><br>
+	                            <%-- 파일이 null이 아니면서 파일 이름이 길이가 0보다 크다면(파일이 있다면) --%>
+								<% if( b.getBoardfile() != null && b.getBoardfile().length() > 0 ) { %>
+	                            <small>파일 :
+	                            	<a href="/planner/resources/boardUploadFiles/<%= b.getBoardfile() %>" style="color: black;" download>
+	                            	<%= b.getBoardfile() %></a>
+	                            </small>
+	                            <% } %>
+	                            <span class="writeName" style="float: right;">작성자 : <%= b.getBwriter() %></span>                
 							</div>
-
+							
 							<div class="list-group list-group-flush">
-								<li class="list-group-item" style="height: 500px;"><%=b.getBcontent()%>
-								</li>
-							</div>
+	                            <li class="list-group-item" style="height: 500px;">
+	                                <%= b.getBcontent() %>
+	                            </li>
+	                        </div>
 						</div>
-					</form>
+					</form>	
 					<br>
 					<div align="center">
-						<button class="btn btn-light" onclick="goSelectList();">
-							목록으로</button>
-						<%
-						if (b.getBwriter().equals(m.getNickName())) {
-						%>
-						<button class="btn btn-dark" onclick="goUpdatePage();">
-							수정하기</button>
-						<%
-						}
-						%>
+						<button class="btn btn-light" onclick="goSelectList();"> 목록으로 </button>	
+	                    <% if (b.getBwriter().equals(m.getNickName())) { %>
+	     				<button class="btn btn-dark" onclick="goUpdatePage();"> 수정하기 </button>
+	     				<% } %>
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-
-	<script>
-		function goSelectList() {
+		</div> 
+    </section>
+    
+    <script>
+		function goSelectList(){
 			location.href = '/planner/list.bo';
 		}
-
-		function goUpdatePage() {
-			location.href = '/planner/updateView.bo?bno=' +
-	<%=b.getBno()%>
-		;
+		
+		function goUpdatePage(){
+			location.href = '/planner/updateView.bo?bno=' + <%= b.getBno() %>;
 		}
 	</script>
 
-	<%@ include file="../common/footer.jsp"%>
+    <%@ include file="../common/footer.jsp"%>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

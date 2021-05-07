@@ -97,151 +97,154 @@ Member m = (Member) session.getAttribute("member");
 	</header>
 
 	<section style="margin-left: 180px;">
-		<div class="container">
-			<div class="row firstContent">
-				<div class="col-10">
-					<div class="card setCardLine" style="width: 100%;">
-						<div class="list-group list-group-flush">
-							<li class="list-group-item"><a href="/planner/list.bo">자유게시판</a>
-								&nbsp;&nbsp; <a href="share.jsp">공유게시판</a> &nbsp;&nbsp; <a
-								href="review.jsp">리뷰게시판</a> &nbsp;&nbsp;</li>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row secondContent">
-				<div class="col-10">
-					<div class="card setCardLine" style="width: 100%;">
-						<div class="card-header">게시판 작성하기</div>
-					</div>
-				</div>
-			</div>
-		</div>
+        <div class="container">
+            <div class="row firstContent">
+                <div class="col-10">
+                    <div class="card setCardLine" style="width: 100%;">
+                        <div class="list-group list-group-flush">
+                            <li class="list-group-item">
+								<a href="/planner/list.bo">자유게시판</a> &nbsp;&nbsp;
+                                <a href="share.jsp">공유게시판</a> &nbsp;&nbsp;
+                                <a href="review.jsp">리뷰게시판</a> &nbsp;&nbsp;
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row secondContent">
+                <div class="col-10">
+                    <div class="card setCardLine" style="width: 100%;">
+                        <div class="card-header">
+                            게시판 작성하기
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 		<div class="container">
 			<div class="row secondContent">
 				<div class="col-10">
-					<form action="/planner/insert.bo" method="post"
-						enctype="multipart/form-data">
+					<form action="/planner/insert.bo" method="post" enctype="multipart/form-data">
 						<div class="card setCardLine" style="width: 100%;">
 							<div class="card-header">
-								<span> <select id="btype" name="type" class="sel"
-									style="height: 30px;">
-										<option selected>타입을 선택 해주세요.</option>
-										<option></option>
-										<option value="1">공지사항</option>
-										<option value="2">커뮤니티</option>
-										<option value="3">묻답</option>
-										<option value="4">플래너공유</option>
-										<option value="5">포토리뷰</option>
-										<option value="6">한줄리뷰</option>
-								</select> <span class="writeDate" style="float: right;">작성일 &nbsp;
-										: </span> <br>
-								<br>
-								</span>
-
-								<div>
-									제목 &nbsp; : &nbsp;&nbsp;&nbsp; <input type="text" name="btitle"
-										style="width: 400px; height: 30px;"> <span
-										class="writeName" style="float: right;">작성자 : <%=m.getNickName()%>
-										<input type="hidden" name="bwriter"
-										value="<%=m.getNickName()%>">
-									</span> <br>
-									<br> <small><input type="file" name="file"
-										id="file"></small>
-								</div>
+								<span>
+	                                <select id="btype" name="type" class="sel" style="height: 30px;">
+	                                    <option selected>타입을 선택 해주세요.</option>
+	                                    <option></option>
+	                                    <option value="1">공지사항</option>
+	                                    <option value="2">커뮤니티</option>
+	                                    <option value="3">묻답</option>
+	                                    <option value="4">플래너공유</option>
+	                                    <option value="5">포토리뷰</option>
+	                                    <option value="6">한줄리뷰</option>
+	                                </select>
+	                                <span class="writeDate" style="float: right;">작성일 &nbsp; : </span>
+	                                <br><br>
+	                            </span>
+	                            
+	                            <div>제목 &nbsp; : &nbsp;&nbsp;&nbsp; <input type="text" name="btitle" style="width: 400px; height:30px;">
+		                            <span class="writeName" style="float: right;">작성자 : <%= m.getNickName() %>
+		                            	<input type="hidden" name="bwriter" value="<%= m.getNickName() %>">
+		                            </span>
+		                            <br><br>
+		                            <small><input type="file" name="file" id="file"></small>
+	                            </div>                          
 							</div>
-
+							
 							<div class="list-group list-group-flush">
-								<li class="list-group-item" style="height: 500px;"><textarea
-										id="summernote" name="bcontent"></textarea></li>
-							</div>
+	                            <li class="list-group-item" style="height: 500px;">
+	                            	<textarea id="summernote" name="bcontent"></textarea>
+	                            </li>
+	                        </div>
 						</div>
-						<br>
-						<div style="float: right;">
-							<!-- Button trigger modal -->
-							<button type="reset" data-toggle="modal"
-								data-target="#exampleModal" class="btn btn-light">작성 취소</button>
-							&nbsp;
-							<button type="submit" class="btn btn-dark">작성 완료</button>
-						</div>
-
+					<br>
+					<div style="float: right;">
+					<!-- Button trigger modal -->
+						<button type="reset" data-toggle="modal" data-target="#exampleModal" class="btn btn-light">작성 취소</button>&nbsp;
+	                    <button type="submit" class="btn btn-dark">작성 완료</button>
+					</div>
+					
 						<!-- Modal -->
-						<div class="modal fade" id="exampleModal" tabindex="-1"
-							aria-labelledby="exampleModalLabel" aria-hidden="true">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLabel">작성 취소 전 확인</h5>
-										<button type="button" class="close" data-dismiss="modal"
-											aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										작성 취소 버튼을 누르셨습니다. <br>
-										<br> 작성하신 내용은 사라집니다. <br> 정말 작성을 취소하시겠습니까?
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-dismiss="modal" onclick="yesBtn();">네</button>
-										<button type="button" class="btn btn-info"
-											data-dismiss="modal" onclick="noBtn();">아니요</button>
-									</div>
-								</div>
-							</div>
+						<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title" id="exampleModalLabel">작성 취소 전 확인</h5>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+						      </div>
+						      <div class="modal-body">
+						      	작성 취소 버튼을 누르셨습니다. <br><br>
+						      	
+						        작성하신 내용은 사라집니다. <br>
+						        정말 작성을 취소하시겠습니까?
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="yesBtn();">네</button>
+						        <button type="button" class="btn btn-info" data-dismiss="modal" onclick="noBtn();">아니요</button>
+						      </div>
+						    </div>
+						  </div>
 						</div>
-
-					</form>
+					
+					</form>	
 				</div>
 			</div>
-		</div>
-	</section>
+		</div> 
+    </section>
+    
+    <script>
+         $('#summernote').summernote({
+                height: 400,                 // 에디터 높이
+                minHeight: 400,              // 최소 높이
+                maxHeight: 400,              // 최대 높이
+                focus: true,                 // 에디터 로딩후 포커스를 맞출지 여부
+                
+                placeholder: '최대 2048자까지 쓸 수 있습니다'	//placeholder 설정
+         });
+         
+         
+         
+         
+         
+         $(function(){
+        	$('.writeDate').text('작성일 : ' + getToday()); 
+         });
+         
+         function getToday(){
+        	    var date = new Date();
+        	    var year = date.getFullYear();
+        	    var month = ("0" + (1 + date.getMonth())).slice(-2);
+        	    var day = ("0" + date.getDate()).slice(-2);
 
-	<script>
-		$('#summernote').summernote({
-			height : 400, // 에디터 높이
-			minHeight : 400, // 최소 높이
-			maxHeight : 400, // 최대 높이
-			focus : true, // 에디터 로딩후 포커스를 맞출지 여부
+        	    return year + "-" + month + "-" + day;
+        }
+       
+        function cancelBtn(){
+             var result = window.confirm("작성을 취소하시겠습니까?");
 
-			placeholder : '최대 2048자까지 쓸 수 있습니다' //placeholder 설정
-		});
+             if(result) { 
+            	 /* location.replace('/planner/list.bo'); */
+            	 location.href='/planner/list.bo';
+             	
+             } else {
+            	 alert("작성을 유지합니다.");
+             }
+        	 
+         }
+        
+        function yesBtn(){
+        	location.href='/planner/list.bo';
+        }
+        function noBtn(){
+        	alert("작성을 유지합니다.");
+        }
+  
+    </script>
 
-		$(function() {
-			$('.writeDate').text('작성일 : ' + getToday());
-		});
-
-		function getToday() {
-			var date = new Date();
-			var year = date.getFullYear();
-			var month = ("0" + (1 + date.getMonth())).slice(-2);
-			var day = ("0" + date.getDate()).slice(-2);
-
-			return year + "-" + month + "-" + day;
-		}
-
-		function cancelBtn() {
-			var result = window.confirm("작성을 취소하시겠습니까?");
-
-			if (result) {
-				/* location.replace('/planner/list.bo'); */
-				location.href = '/planner/list.bo';
-
-			} else {
-				alert("작성을 유지합니다.");
-			}
-
-		}
-
-		function yesBtn() {
-			location.href = '/planner/list.bo';
-		}
-		function noBtn() {
-			alert("작성을 유지합니다.");
-		}
-	</script>
-
-	<%@ include file="../common/footer.jsp"%>
+    <%@ include file="../common/footer.jsp"%>
 </body>
 </html>
+	

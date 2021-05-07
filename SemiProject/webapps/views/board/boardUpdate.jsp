@@ -98,99 +98,92 @@ Board b = (Board) request.getAttribute("board");
 	</header>
 
 	<section style="margin-left: 180px;">
-		<div class="container">
-			<div class="row firstContent">
-				<div class="col-10">
-					<div class="card setCardLine" style="width: 100%;">
-						<div class="list-group list-group-flush">
-							<li class="list-group-item"><a href="/planner/list.bo">자유게시판</a>
-								&nbsp;&nbsp; <a href="share.jsp">공유게시판</a> &nbsp;&nbsp; <a
-								href="review.jsp">리뷰게시판</a> &nbsp;&nbsp;</li>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row secondContent">
-				<div class="col-10">
-					<div class="card setCardLine" style="width: 100%;">
-						<div class="card-header">게시판 수정하기</div>
-					</div>
-				</div>
-			</div>
-		</div>
+        <div class="container">
+            <div class="row firstContent">
+                <div class="col-10">
+                    <div class="card setCardLine" style="width: 100%;">
+                        <div class="list-group list-group-flush">
+                            <li class="list-group-item">
+								<a href="/planner/list.bo">자유게시판</a> &nbsp;&nbsp;
+                                <a href="share.jsp">공유게시판</a> &nbsp;&nbsp;
+                                <a href="review.jsp">리뷰게시판</a> &nbsp;&nbsp;
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row secondContent">
+                <div class="col-10">
+                    <div class="card setCardLine" style="width: 100%;">
+                        <div class="card-header">
+                            게시판 수정하기
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 		<div class="container">
 			<div class="row secondContent">
 				<div class="col-10">
-					<form action="/planner/update.bo" method="post"
-						enctype="multipart/form-data">
-						<input type="hidden" name="bno" value="<%=b.getBno()%>" />
+					<form action="/planner/update.bo" method="post" enctype="multipart/form-data">
+					<input type="hidden" name="bno" value="<%= b.getBno() %>" />
 						<div class="card setCardLine" style="width: 100%;">
 							<div class="card-header">
-								<span> <select id="btype" name="type" class="sel"
-									style="height: 30px;">
-										<option value="<%=b.getBtype()%>">
-											<%=((b.getBtype() == 1)
-		? "공지사항"
-		: (b.getBtype() == 2)
-				? "커뮤니티"
-				: (b.getBtype() == 3) ? "묻답" : (b.getBtype() == 4) ? "플래너공유" : (b.getBtype() == 5) ? "포토리뷰" : "한줄리뷰")%>
-										</option>
-										<option></option>
-										<option value="1">공지사항</option>
-										<option value="2">커뮤니티</option>
-										<option value="3">묻답</option>
-										<option value="4">플래너공유</option>
-										<option value="5">포토리뷰</option>
-										<option value="6">한줄리뷰</option>
-								</select> <span class="writeDate" style="float: right;">작성일 : <%=b.getBdate()%></span>
-									<br>
-								<br>
-								</span>
-
-								<div>
-									제목 : <input type="text" name="btitle"
-										style="width: 400px; height: 30px;"
-										value="<%=b.getBtitle()%>"> <span class="writeName"
-										style="float: right;">작성자 : <%=m.getNickName()%> <input
-										type="hidden" name="bwriter" value="<%=m.getNickName()%>">
-									</span><br>
-									<br>
-									<%
-									if (b.getBoardfile() != null) {
-									%>
-									<small><b>Old File : </b> <a
-										href="/planner/resources/boardUploadFiles/<%=b.getBoardfile()%>"
-										style="color: black;"> <%=b.getBoardfile()%></a> <%
- }
- %> <input
-										type="file" name="file" id="file" style="float: right;"
-										value="<%=b.getBoardfile()%>"> <b
-										style="float: right;"> New File : &nbsp;</b> </small>
-								</div>
+								<span>
+	                                <select id="btype" name="type" class="sel" style="height: 30px;">
+	                                    <option value="<%= b.getBtype() %>"> <%= ((b.getBtype() == 1) ? "공지사항" : (b.getBtype() == 2) ? "커뮤니티" 
+                            			   : (b.getBtype() == 3) ? "묻답" : (b.getBtype() == 4) ? "플래너공유"
+                            			   : (b.getBtype() == 5) ? "포토리뷰" : "한줄리뷰") %>
+                            			</option>
+                            			<option></option>
+	                                    <option value="1">공지사항</option>
+	                                    <option value="2">커뮤니티</option>
+	                                    <option value="3">묻답</option>
+	                                    <option value="4">플래너공유</option>
+	                                    <option value="5">포토리뷰</option>
+	                                    <option value="6">한줄리뷰</option>
+	                                </select>
+	                                <span class="writeDate" style="float: right;">작성일 : <%= b.getBdate() %></span>
+	                                <br><br>
+	                            </span>
+	                            
+	                            <div>제목 : <input type="text" name="btitle" style="width: 400px; height:30px;" value="<%= b.getBtitle() %>">
+		                            <span class="writeName" style="float: right;">작성자 : <%= m.getNickName() %>
+		                            	<input type="hidden" name="bwriter" value="<%= m.getNickName() %>">
+		                            </span><br><br>
+		                            <% if( b.getBoardfile() != null) { %>
+		                            <small><b>Old File : </b>
+		                            	<a href="/planner/resources/boardUploadFiles/<%= b.getBoardfile() %>" style="color: black;">
+		                            	<%= b.getBoardfile() %></a>
+		                            <% } %>
+		                           
+		                            <input type="file" name="file" id="file" style="float: right;" value="<%= b.getBoardfile() %>"> 
+	                            	<b style="float: right;"> New File : &nbsp;</b>
+	                            	</small>
+		                        </div>                          
 							</div>
-
+							
 							<div class="list-group list-group-flush">
-								<li class="list-group-item" style="height: 500px;"><textarea
-										id="summernote" name="bcontent">
-	                            	<%=b.getBcontent()%>
-	                            	</textarea></li>
-							</div>
+	                            <li class="list-group-item" style="height: 500px;">
+	                            	<textarea id="summernote" name="bcontent">
+	                            	<%= b.getBcontent() %>
+	                            	</textarea>
+	                            </li>
+	                        </div>
 						</div>
-						<br>
-						<div style="float: right;">
-							<button type="reset" class="btn btn-light"
-								onclick="deleteBoard();">글 삭제</button>
-							&nbsp;
-							<button type="submit" class="btn btn-dark">수정 완료</button>
-						</div>
-					</form>
+					<br>
+					<div style="float: right;">
+	                    <button type="reset" class="btn btn-light" onclick="deleteBoard();">글 삭제</button>&nbsp;			
+						<button type="submit" class="btn btn-dark">수정 완료</button>
+					</div>
+					</form>	
 				</div>
 			</div>
-		</div>
-	</section>
-
-	<script>
+		</div> 
+    </section>
+    
+    <script>
          $('#summernote').summernote({
              height: 400,                 // 에디터 높이
              minHeight: 400,             // 최소 높이
@@ -214,13 +207,13 @@ Board b = (Board) request.getAttribute("board");
         }
          
          function deleteBoard(){
-        	 var bno ='<%=b.getBno()%>
-		';
+        	 var bno ='<%= b.getBno() %>';
+        	 
+        	 location.href = '/planner/delete.bo?bno=' + bno;
+         }
+    </script>
 
-			location.href = '/planner/delete.bo?bno=' + bno;
-		}
-	</script>
-
-	<%@ include file="../common/footer.jsp"%>
+    <%@ include file="../common/footer.jsp"%>
 </body>
 </html>
+	
