@@ -99,7 +99,7 @@
                     <div>
                     	
                     	<br>
-                   		<button type="button" class="btn btn-dark" style="float: right; background: black; width: 500px;"
+                   		<button type="button" class="btn btn-dark" style="float: right; background: black;"
                    		onclick="location.href='views/board/boardInsert.jsp'">작성하기</button>
                     </div>
                     <br><br>

@@ -127,16 +127,42 @@
 							</div>
 							
 							<div class="list-group list-group-flush">
-	                            <li class="list-group-item" style="height: 400px;">
+	                            <li class="list-group-item" style="height: 500px;">
 	                            	<textarea id="summernote" name="bcontent"></textarea>
 	                            </li>
 	                        </div>
 						</div>
 					<br>
 					<div style="float: right;">
-						<button type="reset" class="btn btn-light">작성 취소</button>&nbsp;
+					<!-- Button trigger modal -->
+						<button type="reset" data-toggle="modal" data-target="#exampleModal" class="btn btn-light">작성 취소</button>&nbsp;
 	                    <button type="submit" class="btn btn-dark">작성 완료</button>
 					</div>
+					
+						<!-- Modal -->
+						<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title" id="exampleModalLabel">작성 취소 전 확인</h5>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+						      </div>
+						      <div class="modal-body">
+						      	작성 취소 버튼을 누르셨습니다. <br><br>
+						      	
+						        작성하신 내용은 사라집니다. <br>
+						        정말 작성을 취소하시겠습니까?
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="yesBtn();">네</button>
+						        <button type="button" class="btn btn-info" data-dismiss="modal" onclick="noBtn();">아니요</button>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+					
 					</form>	
 				</div>
 			</div>
@@ -145,9 +171,9 @@
     
     <script>
          $('#summernote').summernote({
-                height: 300,                 // 에디터 높이
-                minHeight: 300,              // 최소 높이
-                maxHeight: 300,              // 최대 높이
+                height: 400,                 // 에디터 높이
+                minHeight: 400,              // 최소 높이
+                maxHeight: 400,              // 최대 높이
                 focus: true,                 // 에디터 로딩후 포커스를 맞출지 여부
                 
                 placeholder: '최대 2048자까지 쓸 수 있습니다'	//placeholder 설정
@@ -164,54 +190,30 @@
         	    var day = ("0" + date.getDate()).slice(-2);
 
         	    return year + "-" + month + "-" + day;
-        	}
+        }
+       
+        function cancelBtn(){
+             var result = window.confirm("작성을 취소하시겠습니까?");
+
+             if(result) { 
+            	 /* location.replace('/planner/list.bo'); */
+            	 location.href='/planner/list.bo';
+             	
+             } else {
+            	 alert("작성을 유지합니다.");
+             }
+        	 
+         }
+        
+        function yesBtn(){
+        	location.href='/planner/list.bo';
+        }
+        function noBtn(){
+        	alert("작성을 유지합니다.");
+        }
+  
     </script>
 
-    <footer class="footer">
-        <div class="top">
-            <div class="container">
-                <div class="row">
-
-                    <article class="col-md-2 col-sm-2">
-                        <div class="about title">
-                            <h3 class="touch">Touch</h3>
-                            <h3 class="trip">Trip</h3>
-                        </div>
-                    </article>
-
-                    <article class="col-md-8 col-sm-10">
-                        <div class="about content">
-                            <p class="sub">"부산 여행의 모든 것"</p>
-                            <p class="name">
-                               KH정보교육원&nbsp;|&nbsp;대표자:
-                               유정훈&nbsp;|&nbsp;책임자:&nbsp;박지환&nbsp;이철원&nbsp;전소연&nbsp;구도욱&nbsp;강지원&nbsp;곽민지<br />
-                               <a href="refund.html">환불규정</a>&nbsp;|&nbsp;<a href="privacy.html">개인정보취급방침</a>
-                            </p>
-                            <div class="list-icon">
-                                <div>&nbsp;<i class="fa fa-map-marker"></i>&nbsp;&nbsp;&nbsp;서울특별시 강남구 테헤란로14길 6 남도빌딩
-                                </div>
-
-                                <div><i class="fa fa-envelope"></i>&nbsp;&nbsp;&nbsp;touchtrip@gmail.com</div>
-                            </div>
-                        </div>
-                    </article>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 copyright text-center-xs" style="margin: 0 auto;">
-                        <p><span>KH정보교육원</span> Made by Yeojinjok</a> <i class="fa fa-copyright"></i> 2021</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <a href="#" style="position:fixed; bottom: 30px; right: 30px;"><img src="/planner/assets/images/up.png" alt="Top"
-                width="30px" height="30px"></a>
-    </footer>
+    <%@ include file="../common/footer.jsp"%>
 </body>
 </html>

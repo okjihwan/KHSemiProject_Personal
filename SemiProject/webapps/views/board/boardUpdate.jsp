@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 	</header>
-
+   
     <section style="margin-left: 180px;">
         <div class="container">
             <div class="row firstContent">
@@ -139,7 +139,7 @@
 							</div>
 							
 							<div class="list-group list-group-flush">
-	                            <li class="list-group-item" style="height: 400px; resize:none;">
+	                            <li class="list-group-item" style="height: 500px;">
 	                            	<textarea id="summernote" name="bcontent">
 	                            	<%= b.getBcontent() %>
 	                            	</textarea>
@@ -159,9 +159,9 @@
     
     <script>
          $('#summernote').summernote({
-             height: 300,                 // 에디터 높이
-             minHeight: null,             // 최소 높이
-             maxHeight: null,             // 최대 높이
+             height: 400,                 // 에디터 높이
+             minHeight: 400,             // 최소 높이
+             maxHeight: 400,             // 최대 높이
              focus: true,                 // 에디터 로딩후 포커스를 맞출지 여부
              
              placeholder: '최대 2048자까지 쓸 수 있습니다'	//placeholder 설정
@@ -187,51 +187,6 @@
          }
     </script>
 
-    <footer class="footer">
-        <div class="top">
-            <div class="container">
-                <div class="row">
-
-                    <article class="col-md-2 col-sm-2">
-                        <div class="about title">
-                            <h3 class="touch">Touch</h3>
-                            <h3 class="trip">Trip</h3>
-                        </div>
-                    </article>
-
-                    <article class="col-md-8 col-sm-10">
-                        <div class="about content">
-                            <p class="sub">"부산 여행의 모든 것"</p>
-                            <p class="name">
-                               KH정보교육원&nbsp;|&nbsp;대표자:
-                               유정훈&nbsp;|&nbsp;책임자:&nbsp;박지환&nbsp;이철원&nbsp;전소연&nbsp;구도욱&nbsp;강지원&nbsp;곽민지<br />
-                               <a href="refund.html">환불규정</a>&nbsp;|&nbsp;<a href="privacy.html">개인정보취급방침</a>
-                            </p>
-                            <div class="list-icon">
-                                <div>&nbsp;<i class="fa fa-map-marker"></i>&nbsp;&nbsp;&nbsp;서울특별시 강남구 테헤란로14길 6 남도빌딩
-                                </div>
-
-                                <div><i class="fa fa-envelope"></i>&nbsp;&nbsp;&nbsp;touchtrip@gmail.com</div>
-                            </div>
-                        </div>
-                    </article>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 copyright text-center-xs" style="margin: 0 auto;">
-                        <p><span>KH정보교육원</span> Made by Yeojinjok</a> <i class="fa fa-copyright"></i> 2021</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <a href="#" style="position:fixed; bottom: 30px; right: 30px;"><img src="/planner/assets/images/up.png" alt="Top"
-                width="30px" height="30px"></a>
-    </footer>
+    <%@ include file="../common/footer.jsp"%>
 </body>
 </html>
