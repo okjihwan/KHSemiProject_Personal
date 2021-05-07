@@ -3,7 +3,9 @@
 
 <%@ page import="com.touchtrip.Allplanner.map.model.vo.MapData"%>
 
-<%MapData[] mapList = (MapData[]) request.getAttribute("mapList");%>
+<%
+MapData[] mapList = (MapData[]) request.getAttribute("mapList");
+%>
 
 
 <!DOCTYPE html>
@@ -30,8 +32,6 @@
 	crossorigin="anonymous">
 	
 </script>
-<link rel="stylesheet" href="/planner/assets/css/header.css" />
-<link rel="stylesheet" href="/planner/assets/css/footer.css" />
 <link rel="stylesheet" href="/planner/assets/css/planner2.css">
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap"
@@ -111,11 +111,347 @@
 @import
 	url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap')
 	;
+
+<!--
+header css --> /* Global */ :root {
+	-text-color: #f0f4f5;
+	-background-color: #263343;
+	-accent-color: #263343;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: 'Source Sans Pro';
+}
+
+/* 헤더 메뉴들 */
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 8px 12px;
+	height: 60px;
+	background-color: #263343;
+}
+
+/* 로고 아이콘 */
+.navbar__logo {
+	font-size: 24px;
+	color: var(- -text-color);
+	font-family: 'Permanent Marker', cursive;
+	margin-top: -17px;
+}
+
+.navbar__logo i {
+	color: rgb(156, 112, 192);
+}
+
+.navbar__logo a:hover {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/* navbar 메뉴 */
+.navbar__menu {
+	display: flex;
+	padding-left: 0;
+	list-style: none;
+	margin-left: -50px;
+}
+
+/* ----------- 검색창 ---------------*/
+/* 검색창 */
+#content {
+	position: absolute;
+	height: 25px;
+	width: 150px;
+	position: absolute;
+	margin-top: 46px;
+	right: 10px;
+	transform: translate(-50%, -50%);
+}
+
+#content.on {
+	-webkit-animation-name: in-out;
+	animation-name: in-out;
+	-webkit-animation-duration: 0.7s;
+	animation-duration: 0.7s;
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+	-webkit-animation-iteration-count: 1;
+	animation-iteration-count: 1;
+}
+
+/* 돋보기 원 */
+#content>.input {
+	box-sizing: border-box;
+	width: 23px;
+	height: 23px;
+	border: 3px solid #ffffff;
+	border-radius: 50%;
+	background: none;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 400;
+	outline: 0;
+	-webkit-transition: width 0.4s ease-in-out, border-radius 0.8s
+		ease-in-out, padding 0.2s;
+	transition: width 0.4s ease-in-out, border-radius 0.8s ease-in-out,
+		padding 0.2s;
+	-webkit-transition-delay: 0.4s;
+	transition-delay: 0.4s;
+	-webkit-transform: translate(-100%, -50%);
+	-ms-transform: translate(-100%, -50%);
+	transform: translate(-100%, -50%);
+	position: absolute;
+	left: 132px;
+}
+
+/* 막대기 (돋보기 막대, 엑스 막대) */
+.search {
+	background: none;
+	position: absolute;
+	top: 0px;
+	left: -2px;
+	height: 15px;
+	width: 15px;
+	padding: 0;
+	border-radius: 100%;
+	outline: 0;
+	border: 0;
+	color: inherit;
+	cursor: pointer;
+	-webkit-transition: 0.2s ease-in-out;
+	transition: 0.2s ease-in-out;
+	-webkit-transform: translate(-100%, -50%);
+	-ms-transform: translate(-100%, -50%);
+	transform: translate(-100%, -50%);
+}
+
+/* 돋보기 막대 */
+.search:before {
+	content: "";
+	position: absolute;
+	width: 10px;
+	height: 3px;
+	background-color: #fff;
+	-webkit-transform: rotate(30deg);
+	-ms-transform: rotate(30deg);
+	transform: rotate(30deg);
+	margin-top: 5px;
+	margin-left: 140px;
+	-webkit-transition: 0.2s ease-in-out;
+	transition: 0.2s ease-in-out;
+}
+
+/* 검색 박스 닫기 버튼*/
+.close {
+	-webkit-transition: 0.4s ease-in-out;
+	transition: 0.4s ease-in-out;
+	-webkit-transition-delay: 0.4s;
+	transition-delay: 0.4s;
+}
+
+.close:before {
+	content: "";
+	position: absolute;
+	width: 18px;
+	height: 3px;
+	margin-top: -1px;
+	margin-left: 117px;
+	background-color: #fff;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	-webkit-transition: 0.2s ease-in-out;
+	transition: 0.2s ease-in-out;
+}
+
+.close:after {
+	content: "";
+	position: absolute;
+	width: 18px;
+	height: 3px;
+	background-color: #fff;
+	margin-top: -1px;
+	margin-left: 117px;
+	cursor: pointer;
+	-webkit-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+/* 검색 박스 내부 영역 */
+#content>.square {
+	box-sizing: border-box;
+	padding: 0 40px 0 10px;
+	width: 150px;
+	height: 30px;
+	border: 2px solid #ffffff;
+	border-radius: 0;
+	background: none;
+	color: #fff;
+	font-family: 'Source Sans Pro';
+	font-size: 14px;
+	font-weight: 400;
+	outline: 0;
+	-webkit-transition: width 0.4s ease-in-out, border-radius 0.4s
+		ease-in-out, padding 0.2s;
+	transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out,
+		padding 0.2s;
+	-webkit-transition-delay: 0.4s, 0s, 0.4s;
+	transition-delay: 0.4s, 0s, 0.4s;
+	-webkit-transform: translate(-100%, -50%);
+	-ms-transform: translate(-100%, -50%);
+	transform: translate(-100%, -50%);
+}
+
+/* --------------------------*/
+
+/* 메뉴 요소들 */
+.navbar__menu li {
+	padding: 8px 12px;
+}
+
+.navbar__menu li:hover {
+	background-color: var(- -accent-color);
+	border-radius: 4px;
+}
+
+.navbar__menu a:hover {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.navbar__icons {
+	list-style: none;
+	color: var(- -text-color);
+	display: flex;
+	padding-left: 0;
+	margin-top: 1px;
+}
+
+/* Icons */
+.navbar__icons li {
+	padding: 8px 12px;
+}
+
+.navbar__icons a:hover {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/* footer */
+
+/* footer의 touchtrip */
+.about h3 {
+	font-family: 'Permanent Marker', cursive;
+	letter-spacing: 3px;
+	margin-top: 22px;
+	font-size: 30px;
+}
+
+.touch {
+	text-align: left;
+}
+
+.trip {
+	position: relative;
+	left: 25px;
+	bottom: 20px;
+}
+
+/* 부산 여행의 모든 것 */
+.sub {
+	font-size: 30px;
+	font-family: 'Nanum Brush Script', cursive;
+	margin-top: -25px;
+}
+
+article {
+	margin-top: 40px;
+}
+
+.about {
+	color: rgba(104, 104, 104, 0.884);
+	text-align: center;
+}
+
+.name {
+	font-size: 12px;
+}
+
+.end {
+	font-size: 12px;
+}
+
+.list-icon {
+	font-size: 14px;
+}
+
+.go-to-top {
+	background: black;
+	float: right;
+}
+
+.bottom {
+	color: lightgray;
+	text-align: center;
+}
+
+article div a {
+	color: red;
+}
 </style>
 
 </head>
 <body>
-	<%@ include file="../common/header.jsp"%>
+	<header>
+		<!-- Nav container -->
+		<nav class="navbar">
+			<!-- 로고, 아이콘 -->
+			<div class="navbar__logo">
+				<i class="fas fa-route"></i> <a href="/planner/checkMain.do"
+					style="text-decoration: none; color: white;">TouchTrip</a>
+			</div>
+			<!-- 메뉴 -->
+			<ul class="navbar__menu">
+				<li><a href="/planner/checkMain.do"
+					style="text-decoration: none; color: white;">Home</a></li>
+				<li><a
+					href="http://localhost:8088/planner/views/planner/planner1.jsp"
+					style="text-decoration: none; color: white;">플래너</a></li>
+				<li><a href="/planner/list.bo"
+					style="text-decoration: none; color: white;">커뮤니티</a></li>
+				<li><a
+					href="http://localhost:8088/planner/views/member/login.jsp"
+					style="text-decoration: none; color: white;">Login / Join</a></li>
+				<li><a href="/planner/countMember.ad"
+					style="text-decoration: none; color: white;">관리자 페이지</a></li>
+				<li><a
+					href="http://localhost:8088/planner/views/myPage/myPage.jsp"
+					style="text-decoration: none; color: white;">마이페이지</a></li>
+			</ul>
+
+			<!-- 검색창 -->
+			<div id="content">
+				<input type="text" name="input" class="input" id="search-input">
+				<button type="reset" class="search" id="search-btn"></button>
+			</div>
+
+			<!-- 인스타, 페이스북 아이콘 -->
+			<ul class="navbar__icons">
+				<li><a href="http://www.instagram.com/touchtrip_official"
+					style="text-decoration: none; color: white;"><i
+						class="fab fa-instagram"></i></a></li>
+				<li><i class="fab fa-facebook-f" style="text-decoration: none; color: white;"></i></li>
+			</ul>
+	</header>
+	<!-- header 끝 -->
 
 	<div class="wrap1">
 		<div class="container-fluid">
@@ -150,7 +486,8 @@
 										<p><%=saved.getPhone()%></p>
 									</div>
 									<div>
-										<button type="submit" class="btn btn-outline-info re_button" id="moveToPlan">
+										<button type="submit" class="btn btn-outline-info re_button"
+											id="moveToPlan">
 											<span id="re_but_font">일정등록</span>
 										</button>
 										<button type="submit"
@@ -287,8 +624,82 @@
 			</div>
 		</div>
 	</div>
-	<%@ include file="../common/footer.jsp"%>
-	
+	<!-- footer -->
+	<footer class="footer">
+		<div class="top">
+			<div class="container">
+				<div class="row" style="margin-left: auto; margin-right: auto;">
+
+					<article class="col-md-2 col-sm-2">
+						<!-- TouchTrip 타이틀 -->
+						<div class="about title">
+							<h3 class="touch">Touch</h3>
+							<h3 class="trip">Trip</h3>
+						</div>
+					</article>
+
+					<article class="col-md-8 col-sm-10">
+						<!-- 페이지 주제 -->
+						<div class="about content">
+							<p class="sub">"부산 여행의 모든 것"</p>
+							<!-- 이름 및 환불규정, 개인정보취급방침 -->
+							<p class="name">
+								KH정보교육원&nbsp;|&nbsp;대표자:
+								유정훈&nbsp;|&nbsp;책임자:&nbsp;박지환&nbsp;이철원&nbsp;전소연&nbsp;구도욱&nbsp;강지원&nbsp;곽민지<br />
+								<a href="refund.html">환불규정</a>&nbsp;|&nbsp;<a
+									href="privacy.html">개인정보취급방침</a>
+							</p>
+							<!-- 주소 및 이메일 -->
+							<div class="list-icon">
+								<div>
+									&nbsp;<i class="fa fa-map-marker"></i>&nbsp;&nbsp;&nbsp;서울특별시
+									강남구 테헤란로14길 6 남도빌딩
+								</div>
+
+								<div>
+									<i class="fa fa-envelope"></i>&nbsp;&nbsp;&nbsp;touchtrip@gmail.com
+								</div>
+							</div>
+						</div>
+					</article>
+				</div>
+			</div>
+		</div>
+
+		<div class="bottom">
+			<div class="container">
+				<div class="row" style="margin-left: auto; margin-right: auto;">
+					<div class="col-sm-6 copyright text-center-xs"
+						style="margin: 0 auto;">
+						<p>
+							<span>KH정보교육원</span> Made by Yeojinjok</a> <i class="fa fa-copyright"></i>
+							2021
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 맨 위로 스크롤 버튼 -->
+		<a href="#" class="scroll"
+			style="position: fixed; bottom: 30px; right: 30px;"><img
+			src="http://localhost:8088/planner/assets/images/up.png" alt="Top"
+			width="30px" height="30px"></a>
+	</footer>
+
+	<!-- 스크롤 효과 -->
+	<script>
+		var $target = $('.scroll');
+		$target.on('click', function() {
+			$('html, body').animate({
+				'scrollTop' : 0
+			}, 200);
+			return false;
+		});
+	</script>
+
+	<!-- footer 끝 -->
+
 	<!--  
 	
 	<script>

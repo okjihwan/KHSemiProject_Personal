@@ -23,7 +23,8 @@
 	href="http://localhost:8088/planner/assets/css/footer.css" />
 <link rel="stylesheet"
 	href="http://localhost:8088/planner/assets/css/login.css">
-<script src="http://localhost:8088/planner/assets/js/jquery-3.6.0.min.js"></script>	
+<script
+	src="http://localhost:8088/planner/assets/js/jquery-3.6.0.min.js"></script>
 
 <script src="https://kit.fontawesome.com/2d323a629b.js"
 	crossorigin="anonymous"></script>
@@ -56,23 +57,19 @@
 		<nav class="navbar">
 			<!-- 로고, 아이콘 -->
 			<div class="navbar__logo" style="margin-top: -4px;">
-				<i class="fas fa-route"></i> <a
-					href="/planner/checkMain.do"
+				<i class="fas fa-route"></i> <a href="/planner/checkMain.do"
 					style="font-family: 'Permanent Marker', cursive;">TouchTrip</a>
 			</div>
 			<!-- 메뉴 -->
 			<ul class="navbar__menu">
+				<li><a href="/planner/checkMain.do">Home</a></li>
 				<li><a
-					href="/planner/checkMain.do">Home</a></li>
-				<li><a href="http://localhost:8088/planner/views/planner/planner1.jsp">플래너</a></li>
-				<li><a
-					href="/planner/list.bo">커뮤니티</a></li>
+					href="http://localhost:8088/planner/views/planner/planner1.jsp">플래너</a></li>
+				<li><a href="/planner/list.bo">커뮤니티</a></li>
 				<li><a
 					href="http://localhost:8088/planner/views/member/login.jsp">Login
 						/ Join</a></li>
-				<li><a
-					href="/planner/countMember.ad">관리자
-						페이지</a></li>
+				<li><a href="/planner/countMember.ad">관리자 페이지</a></li>
 				<li><a
 					href="http://localhost:8088/planner/views/myPage/myPage.jsp">마이페이지</a></li>
 			</ul>
@@ -96,8 +93,12 @@
 		<div class="form-wrap">
 			<div class="button-wrap">
 				<div id="btn"></div>
-				<button type="button" class="togglebtn" onclick="login()"><b>로그인</b></button>
-				<button type="button" class="togglebtn" onclick="register()" ><b>회원가입</b></button>
+				<button type="button" class="togglebtn" onclick="login()">
+					<b>로그인</b>
+				</button>
+				<button type="button" class="togglebtn" onclick="register()">
+					<b>회원가입</b>
+				</button>
 			</div>
 			<!-- 
 			<div class="social-icons">
@@ -109,46 +110,68 @@
 					alt="google">
 			</div>
 			 -->
-            <form id="login" class="log-group" action="/planner/login.me" method="post" >
-                아이디&nbsp;
-                <input type="text" class="log-field" id="userId" name="userId" placeholder="Enter ID" required>
-                <br><br>
-                비밀번호<input type="password" class="log-field" id="userPwd" name="userPwd" placeholder="Enter Password" required>
-            
-                <input type="checkbox" class="checkbox"><span>로그인 유지하기</span>
-                <button class="submit" onClick="loginMember();">L O G I N</button>
-            </form>
-            
-            <form id="register" class="join-group" action="/planner/insert.me" method="post" >
+			<form id="login" class="log-group" action="/planner/login.me"
+				method="post">
+				아이디&nbsp; <input type="text" class="log-field" id="userId"
+					name="userId" placeholder="Enter ID" required> <br>
+				<br> 비밀번호<input type="password" class="log-field" id="userPwd"
+					name="userPwd" placeholder="Enter Password" required> <input
+					type="checkbox" class="checkbox"><span>로그인 유지하기</span>
+				<button class="submit" onClick="loginMember();">L O G I N</button>
+			</form>
+
+			<form id="register" class="join-group" action="/planner/insert.me"
+				method="post">
 				아이디&nbsp;
-                <div><input style="width: 70%;" type="text" class="join-field" id="userId_sign_in" name="userId" placeholder="Enter ID" required> 
-                &nbsp;<button style="width: 25%;" class="button" id="idCheck" >중복확인</button></div><br />
-                비밀번호
-                <div><input type="password" class="join-field" id="userPwd_sign_in" name="userPwd" placeholder="Enter Password" required>
-                </div><br>
-                이름
-                <div><input type="text" class="join-field" id="userName" name="userName" placeholder="Enter Name" required>
-                </div><br/>
-                닉네임<br />
-                <div><input style="width: 70%;" type="text" class="join-field" id="nickName" name="nickName" placeholder="Enter Nickname" required>
-                &nbsp;<button style="width: 25%;" class="button" id="nickCheck">중복확인</button>
-                </div><br />
-				<div>나이 &nbsp;<input type="number" name="age" class="sel" aria-label="나이" min="10" placeholder="age" style="margin-left: 8px;" required>
-                    &nbsp;<select id="gender" name="gender" aria-label="성별" placeholder="gender" style="margin-left: 10px;">
-                                <option value="">gender</option>
-                                <option value="M">남자</option>
-                                <option value="F">여자</option>
-                        </select></div><br />
-                <div>연락처<br>
-                <input type="phone" class="join-field" id="phone" name="phone" placeholder="Enter Number Only" required> 
-                <%--	<button class="button">인증하기</button> --%>
-                </div>
-                <input type="checkbox" class="checkbox"><span>개인정보 수집 및 이용에 동의합니다.</span>
-                <button class="submit" onClick="insertMember();">R E G I S T E R</button>
-            </form>
-        </div>
-    </div>
-     <script>
+				<div>
+					<input style="width: 70%;" type="text" class="join-field"
+						id="userId_sign_in" name="userId" placeholder="Enter ID" required>
+					&nbsp;
+					<button style="width: 25%;" class="button" id="idCheck">중복확인</button>
+				</div>
+				<br /> 비밀번호
+				<div>
+					<input type="password" class="join-field" id="userPwd_sign_in"
+						name="userPwd" placeholder="Enter Password" required>
+				</div>
+				<br> 이름
+				<div>
+					<input type="text" class="join-field" id="userName" name="userName"
+						placeholder="Enter Name" required>
+				</div>
+				<br /> 닉네임<br />
+				<div>
+					<input style="width: 70%;" type="text" class="join-field"
+						id="nickName" name="nickName" placeholder="Enter Nickname"
+						required> &nbsp;
+					<button style="width: 25%;" class="button" id="nickCheck">중복확인</button>
+				</div>
+				<br />
+				<div>
+					나이 &nbsp;<input type="number" name="age" class="sel"
+						aria-label="나이" min="10" placeholder="age"
+						style="margin-left: 8px;" required> &nbsp;<select
+						id="gender" name="gender" aria-label="성별" placeholder="gender"
+						style="margin-left: 10px;">
+						<option value="">gender</option>
+						<option value="M">남자</option>
+						<option value="F">여자</option>
+					</select>
+				</div>
+				<br />
+				<div>
+					연락처<br> <input type="phone" class="join-field" id="phone"
+						name="phone" placeholder="Enter Number Only" required>
+					<%--	<button class="button">인증하기</button> --%>
+				</div>
+				<input type="checkbox" class="checkbox"><span>개인정보 수집
+					및 이용에 동의합니다.</span>
+				<button class="submit" onClick="insertMember();">R E G I S
+					T E R</button>
+			</form>
+		</div>
+	</div>
+	<script>
         var x = document.getElementById("login");
         var y = document.getElementById("register");
         var z = document.getElementById("btn");

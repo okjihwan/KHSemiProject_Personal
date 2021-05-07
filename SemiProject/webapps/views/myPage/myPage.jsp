@@ -34,8 +34,8 @@
 	rel="stylesheet" />
 
 <!-- 프로필 수정 팝업 -->
-<script
-	src="http://localhost:8088/planner/assets/js/mypage_profile.js" defer></script>
+<script src="http://localhost:8088/planner/assets/js/mypage_profile.js"
+	defer></script>
 
 <style>
 /* font url */
@@ -67,9 +67,9 @@
 
 				<div class="text-area">
 					<!-- 닉네임 및 자기소개 -->
-					<h2 class="greeting stagger-item">오늘은 맑음</h2>
+					<h2 class="greeting stagger-item">오늘은맑음</h2>
 					<div class="desc stagger-item">
-						한 달의 여행으로 10년을 버티는 사람입니다.<br> (자기소개)
+						한 달의 여행으로 10년을 버티는 사람입니다.<br>
 					</div>
 				</div>
 
@@ -97,12 +97,14 @@
 										style="color: rgba(212, 211, 211, 0.884);">삭제하기</a>
 								</div>
 							</div>
-							<div class="row profile-text" style="margin-top: 30px; margin-left: 80px;">
+							<div class="row profile-text"
+								style="margin-top: 30px; margin-left: 80px;">
 								<input type="text" name="nickname" class="nickname"
-									placeholder="오늘은맑음" value="오늘은맑음" style="text-align : center;">
+									placeholder="오늘은맑음" value="오늘은맑음" style="text-align: center;">
 							</div>
-							<div class="row profile-text" style="margin-left: 70px;">
-								<textarea name="" id="" cols="25" rows="3" style="text-align : center;"></textarea>
+							<div class="row profile-text" style="margin-left: 55px;">
+								<textarea name="" id="" cols="25" rows="3"
+									style="text-align: center;">한 달의 여행으로 10년을 버티는 사람입니다.</textarea>
 							</div>
 
 							<div class="btn-r">
